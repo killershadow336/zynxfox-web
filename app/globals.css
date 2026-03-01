@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0a0a0a;
+  --navbar-h: 4rem; /* h-16 del navbar */
+}
+
+html, body {
+  height: 100%;
+}
+
+html {
+  /* Evita que anclas queden tapadas por el navbar sticky */
+  scroll-padding-top: calc(var(--navbar-h) + 8px);
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+  color: #e5e7eb;
+}
+
+/* Desactiva fixed en pantallas pequeñas para evitar glitches conocidos en iOS/Android */
+@media (max-width: 640px) {
+  body {
+  background-attachment: scroll;
+  background-size: auto; /* mantiene estética sin jitter */
+  background-position: center;
+  }
+}
+
+/* Headings con id (anclas) respetan margen superior para sticky header */
+h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
+  scroll-margin-top: calc(var(--navbar-h) + 8px);
+}
+
+.container {
+  @apply mx-auto max-w-6xl px-6;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg bg-brand-500 px-4 py-2 font-medium text-white shadow-lg shadow-brand-500/20 transition hover:bg-brand-400;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2 font-medium text-white backdrop-blur transition hover:bg-white/10;
+}
+
+/* micro-animación para brillo en botones */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  height: 100%;
+  width: 120%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+  rgba(255,255,255,0.15) 42%,
+  rgba(255,255,255,0.25) 50%,
+  rgba(255,255,255,0.15) 58%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+}
+.btn-shine:hover::after {
+  animation: shine 1s ease forwards;
+}
+
+@keyframes shine {
+  to { left: 150%; }
+}
+
+/* Reduce motion para usuarios que lo prefieren */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
