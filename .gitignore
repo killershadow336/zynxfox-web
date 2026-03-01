@@ -1,0 +1,24 @@
+node_modules
+.next
+out
+.env*
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+# Puedes quitar la línea 'utils/' para que se suba esa carpeta
+
+# Carpetas que no son parte de la web
+bot/
+private/
+assets/
+_tests/
+commands/
+configs/
+docs/
+handlers/
+listeners/
+scripts/
+src/
+types/
+utils/
