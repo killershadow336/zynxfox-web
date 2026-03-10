@@ -10,6 +10,8 @@
   html,
   body {
     min-height: 100%;
+    max-width: 100%;
+    overflow-x: clip;
   }
 
   html {
@@ -136,6 +138,8 @@
   .legal-content,
   .prose {
     @apply max-w-none text-body text-text-secondary;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .doc-content h1,
@@ -207,7 +211,11 @@
   .doc-content table,
   .legal-content table,
   .prose table {
-    @apply my-6 w-full overflow-hidden rounded-card border border-border-subtle text-left text-sm;
+    @apply my-6 w-full rounded-card border border-border-subtle text-left text-sm;
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .doc-content thead,
@@ -786,17 +794,6 @@
 
   .capability-marquee__fade {
     width: 2.5rem;
-  }
-
-  .floating-panel-soon {
-    gap: 0.7rem;
-    width: min(100%, 21rem);
-    padding: 0.72rem 0.85rem;
-    border-radius: 1.1rem;
-  }
-
-  .floating-panel-soon__copy {
-    max-width: 9rem;
   }
 
   .showcase-shell {

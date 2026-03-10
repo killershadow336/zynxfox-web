@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 
 export function FloatingPanelSoon() {
   return (
-    <div className="pointer-events-none fixed inset-x-4 bottom-4 z-40 flex justify-center md:inset-x-auto md:right-5 md:justify-end">
+    <div className="pointer-events-none fixed bottom-5 right-5 z-40 hidden md:block">
       <button
         type="button"
         disabled

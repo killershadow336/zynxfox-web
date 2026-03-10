@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { AuthorChip } from "@/components/blog/author-chip";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Reveal } from "@/components/ui/reveal";
@@ -32,7 +33,7 @@ export default async function BlogIndexPage() {
             <Card className="card-lift h-full p-6">
               <div className="flex flex-wrap items-center gap-2">
                 <Badge variant="default">{post.formattedDate}</Badge>
-                <Badge variant="new">{`${post.readingMinutes} min`}</Badge>
+                <Badge variant="new">{post.readingLabel}</Badge>
                 {(post.tags ?? []).slice(0, 2).map((tag) => (
                   <Badge key={tag} variant="beta">
                     {tag}
@@ -51,7 +52,7 @@ export default async function BlogIndexPage() {
               <p className="mt-3 text-body text-text-secondary">{post.description}</p>
 
               <div className="mt-6 flex items-center justify-between gap-4">
-                <span className="text-sm text-text-muted">Por {post.author}</span>
+                <AuthorChip author={post.author} avatarUrl={post.authorAvatarUrl} />
                 <Link
                   className="inline-flex items-center gap-2 text-sm font-medium text-text-primary transition-colors hover:text-brand-pink"
                   href={withLocale(`/blog/${post.slug}`) as any}

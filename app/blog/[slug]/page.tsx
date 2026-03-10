@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { AuthorChip } from "@/components/blog/author-chip";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Reveal } from "@/components/ui/reveal";
@@ -43,7 +44,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <Reveal className="mx-auto max-w-3xl">
         <div className="flex flex-wrap items-center gap-2">
           <Badge variant="default">{post.formattedDate}</Badge>
-          <Badge variant="new">{`${post.readingMinutes} min`}</Badge>
+          <Badge variant="new">{post.readingLabel}</Badge>
           {(post.tags ?? []).map((tag) => (
             <Badge key={tag} variant="beta">
               {tag}
@@ -55,7 +56,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           {post.title}
         </h1>
         <p className="mt-4 max-w-2xl text-body text-text-secondary">{post.description}</p>
-        <p className="mt-4 text-sm text-text-muted">Publicado por {post.author}</p>
+        <div className="mt-5">
+          <AuthorChip author={post.author} avatarUrl={post.authorAvatarUrl} size="md" />
+        </div>
       </Reveal>
 
       <Reveal className="mx-auto mt-10 max-w-3xl">

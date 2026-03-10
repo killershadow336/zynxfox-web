@@ -24,6 +24,8 @@ export type BlogPostSummary = Omit<BlogFrontmatter, "tags"> & {
   tags: string[];
   formattedDate: string;
   readingMinutes: number;
+  readingLabel: string;
+  authorAvatarUrl: string;
 };
 
 export type BlogPost = BlogPostSummary & {
@@ -53,6 +55,17 @@ function countReadingMinutes(source: string) {
   return Math.max(1, Math.ceil(words / 220));
 }
 
+function formatReadingLabel(readingMinutes: number) {
+  return `Lectura ${readingMinutes} min`;
+}
+
+function getAuthorAvatarUrl(author: string) {
+  const ownerDiscordId = process.env.NEXT_PUBLIC_OWNER_DISCORD_ID?.trim();
+  const ownerDiscordUsername = process.env.NEXT_PUBLIC_OWNER_DISCORD_USERNAME?.trim();
+  const identity = ownerDiscordId || ownerDiscordUsername || author;
+  return `https://unavatar.io/discord/${encodeURIComponent(identity)}`;
+}
+
 const blogComponents = {
   Callout,
   CommandBadge,
@@ -79,12 +92,15 @@ export const getAllBlogPosts = cache(async (): Promise<BlogPostSummary[]> => {
       .map(async (file) => {
         const { frontmatter, sanitizedSource } = await readPostFile(file);
         if (frontmatter.published === false) return null;
+        const readingMinutes = countReadingMinutes(sanitizedSource);
 
         return {
           ...frontmatter,
           tags: frontmatter.tags ?? [],
           formattedDate: formatDate(frontmatter.date),
-          readingMinutes: countReadingMinutes(sanitizedSource),
+          readingMinutes,
+          readingLabel: formatReadingLabel(readingMinutes),
+          authorAvatarUrl: getAuthorAvatarUrl(frontmatter.author),
         } satisfies BlogPostSummary;
       })
   );
@@ -112,11 +128,15 @@ export const getBlogPost = cache(async (slug: string): Promise<BlogPost | null> 
       components: blogComponents,
     });
 
+    const readingMinutes = countReadingMinutes(sanitizedSource);
+
     return {
       ...frontmatter,
       tags: frontmatter.tags ?? [],
       formattedDate: formatDate(frontmatter.date),
-      readingMinutes: countReadingMinutes(sanitizedSource),
+      readingMinutes,
+      readingLabel: formatReadingLabel(readingMinutes),
+      authorAvatarUrl: getAuthorAvatarUrl(frontmatter.author),
       content,
     };
   }

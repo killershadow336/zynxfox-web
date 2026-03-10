@@ -7,6 +7,7 @@ import {
   Volume2,
   Wrench,
 } from "lucide-react";
+import { AuthorChip } from "@/components/blog/author-chip";
 import { CapabilityMarquee } from "@/components/home/capability-marquee";
 import { HeroBackdrop } from "@/components/home/hero-backdrop";
 import { ShowcaseGrid } from "@/components/home/showcase-grid";
@@ -100,7 +101,7 @@ export default async function HomePage() {
             </Badge>
           </div>
 
-          <h1 className="mx-auto mt-8 max-w-4xl font-heading text-hero font-extrabold tracking-tight text-balance text-text-primary">
+          <h1 className="mx-auto mt-8 max-w-4xl break-words font-heading text-[clamp(2.45rem,14vw,4.5rem)] font-extrabold leading-[0.94] tracking-tight text-balance text-text-primary">
             <GradientText>El bot que tu servidor necesitaba.</GradientText>
           </h1>
 
@@ -180,10 +181,13 @@ export default async function HomePage() {
               <Card className="card-lift h-full p-6">
                 <div className="flex flex-wrap items-center gap-2">
                   <Badge variant="default">{post.formattedDate}</Badge>
-                  <Badge variant="new">{`${post.readingMinutes} min`}</Badge>
+                  <Badge variant="new">{post.readingLabel}</Badge>
                 </div>
                 <h2 className="mt-5 font-heading text-h3 font-bold text-text-primary">{post.title}</h2>
                 <p className="mt-3 text-body text-text-secondary">{post.description}</p>
+                <div className="mt-5">
+                  <AuthorChip author={post.author} avatarUrl={post.authorAvatarUrl} />
+                </div>
                 <div className="mt-5">
                   <Button href={withLocale(`/blog/${post.slug}`)} variant="secondary">
                     Leer update

@@ -25,7 +25,7 @@ export function LegalLayout({
               Legal
             </p>
             <div className="space-y-3">
-              <h1 className="font-heading text-h1 font-extrabold tracking-tight text-text-primary">
+              <h1 className="max-w-full break-words font-heading text-[clamp(2.1rem,11vw,3rem)] font-extrabold tracking-tight text-text-primary">
                 {title}
               </h1>
               {description ? (
