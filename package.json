@@ -12,6 +12,7 @@
     "start": "next start -p 3010"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.6.1",
     "class-variance-authority": "^0.7.1",
     "framer-motion": "^11.0.0",
     "github-slugger": "^2.0.0",

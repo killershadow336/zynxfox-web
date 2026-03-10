@@ -1,35 +1,27 @@
 # ZynxFox Web Roadmap
 
-Estado de referencia del rebuild web.
+Estado de referencia del rebuild web.  
 Ultima actualizacion interna: 9 de abril de 2026.
 
 ## Estado general
 
-La web ya tiene una base visual fuerte, legal integrada y rutas publicas listas.
-Todavia no esta cerrada para produccion total porque faltan contenidos finales de varias guias, material visual real y una ultima pasada de QA y deploy.
+La web ya tiene una base visual fuerte, legales integradas, deploy funcionando y rutas publicas listas.
+Todavia no esta cerrada al 100% porque faltan capturas reales, una ultima pasada de QA y pulido final de copy.
 
 ## Resumen por fase
 
-### Fase 0 — Fundacion visual
+### Fase 0 - Fundacion visual
 Estado: completada
 
 Incluye:
 - sistema de diseno con tokens, tipografias y componentes base
 - navbar, footer, layouts reutilizables y motion base
 - landing con identidad visual alineada a ZynxFox
-- fondo animado de la home
-- estilos legales y docs
+- fondo animado principal
+- estilos de docs y legales
 
-Rutas/base afectada:
-- `web/app/layout.tsx`
-- `web/app/globals.css`
-- `web/styles/tokens.css`
-- `web/lib/fonts.ts`
-- `web/components/ui/*`
-- `web/components/layout/*`
-
-### Fase 1 — Sitio publico esencial
-Estado: en progreso muy avanzado
+### Fase 1 - Sitio publico esencial
+Estado: muy avanzado
 
 Ya hecho:
 - home publica
@@ -41,37 +33,45 @@ Ya hecho:
 - integracion legal con MDX
 - snapshot local de comandos para produccion
 
-Pendiente dentro de esta fase:
-- completar y seguir refinando contenido real de la wiki
-- reemplazar placeholders visuales por capturas, videos o mockups
+Abierto:
+- seguir refinando contenido real de la wiki
+- reemplazar mockups o placeholders por capturas reales
 - revisar tono final de copy en todas las rutas
 - QA completo de navegacion y responsive
 
-### Fase 2 — Contenido vivo
-Estado: pendiente
+### Fase 2 - Contenido vivo
+Estado: iniciada
 
-Objetivo:
-- blog o updates oficiales
-- changelog publico
-- flujo simple para publicar novedades desde el repo
+Ya hecho:
+- base de `/blog`
+- posts iniciales publicados desde MDX
+- previews de updates en la home
 
-### Fase 3 — Cierre de produccion
-Estado: pendiente
+Abierto:
+- sumar mas posts reales
+- convertirlo en changelog publico si hace falta
 
-Objetivo:
-- dominio real
-- despliegue final en Vercel
-- metadata y Open Graph finales
-- sitemap/robots con dominio definitivo
+### Fase 3 - Cierre de produccion
+Estado: en progreso
+
+Ya hecho:
+- deploy inicial en Vercel
+- soporte para `NEXT_PUBLIC_SITE_URL`
+- sitemap y robots
+
+Abierto:
+- dominio final
+- metadata finales
 - revision final legal y de contacto
+- QA de produccion
 
-### Fase 4 — Futuro producto web
+### Fase 4 - Futuro producto web
 Estado: no iniciado
 
 Objetivo:
 - teaser o pagina de "panel web pronto"
 - luego panel/config web hibrido
-- sin OAuth ni panel real en esta etapa actual
+- sin OAuth ni panel real en esta etapa
 
 ## Estado actual por area
 
@@ -81,27 +81,27 @@ Estado: fuerte
 Hecho:
 - paleta oficial morado/rosa
 - logo real del bot
-- motion base
 - CTA primario mejorado
 - fondo animado principal
+- showcase visual en la home
 
 Abierto:
 - seguir refinando microinteracciones
-- agregar mockup hero o preview real del bot
+- reemplazar mockups por media real
 
 ### Landing
-Estado: util y presentable
+Estado: fuerte y cercana a lanzamiento
 
 Hecho:
 - hero
 - seccion de capacidades
-- soporte
-- CTA al bot
+- showcase visual del flujo del bot
+- preview de updates
+- soporte y CTA al Discord
 
 Abierto:
-- sumar una seccion showcase mas potente
-- sustituir placeholders de media
 - pulir copy comercial final
+- meter capturas reales o mini demos
 
 ### Wiki
 Estado: estructura lista, contenido principal avanzado
@@ -111,18 +111,17 @@ Hecho:
 - indice principal
 - rutas por modulos y ayuda
 - guias reforzadas de configuracion inicial
-- guias reforzadas de tickets
-- guias reforzadas de moderacion
-- guias reforzadas de centro de creadores
-- guias reforzadas de niveles
-- guias reforzadas de recordatorios y sorteos
-- FAQ y troubleshooting ampliados
+- tickets
+- moderacion
+- centro de creadores
+- niveles
+- recordatorios y sorteos
+- FAQ y troubleshooting
 
 Abierto:
-- seguir refinando detalles y ampliar modulos secundarios si hace falta
-- añadir capturas reales
+- ampliar modulos secundarios si hace falta
+- anadir capturas reales
 - cruzar mejor docs con comandos
-- cubrir mas modulos y escenarios del bot real
 
 ### Comandos
 Estado: funcional
@@ -134,7 +133,7 @@ Hecho:
 
 Abierto:
 - enriquecer descripciones
-- enlazar cada categoria con guias wiki donde corresponda
+- enlazar categorias con guias wiki
 
 ### Soporte
 Estado: funcional
@@ -144,8 +143,8 @@ Hecho:
 - CTA al Discord oficial
 
 Abierto:
-- añadir mas flujos de ayuda rapida
-- posibles FAQs enlazadas por tipo de problema
+- sumar flujos de ayuda rapida
+- enlazar problemas frecuentes segun caso
 
 ### Legales
 Estado: casi cerradas
@@ -156,56 +155,35 @@ Hecho:
 - alineacion con Bolivia y con el comportamiento real del bot
 
 Abierto:
-- ultima pasada de tono juridico si se quiere un lenguaje mas formal
+- ultima pasada de tono juridico si se quiere mas formalidad
 
 ### Deploy
-Estado: preparado en base, no cerrado
+Estado: funcionando
 
 Hecho:
 - proyecto compila
-- soporte para `NEXT_PUBLIC_SITE_URL`
-- favicon/logo correcto
+- deploy inicial en Vercel
+- favicon y logo correctos
 
 Abierto:
-- dominio real
+- dominio final
 - variables finales
-- verificacion final en Vercel
+- revision de produccion en movil y desktop
 
 ## Orden recomendado desde ahora
 
-1. Completar la wiki con contenido real modulo por modulo.
-2. Sustituir placeholders visuales por capturas o mockups.
-3. Pulir la landing con una seccion showcase mas fuerte.
-4. Montar blog/updates.
-5. Hacer QA final en movil, desktop, accesibilidad y rendimiento.
-6. Configurar dominio y deploy final.
-
-## Siguiente foco activo
-
-Foco actual recomendado: cerrar contenido visual y showcase de produccion.
-
-La primera pasada fuerte de la wiki ya esta hecha en:
-1. `Configuracion inicial`
-2. `Tickets`
-3. `Moderacion`
-4. `Centro de Creadores`
-5. `Niveles`
-6. `Recordatorios y sorteos`
-7. `Preguntas frecuentes`
-8. `Solucion de problemas`
-
-Siguiente orden sugerido desde aqui:
-1. reemplazar `MediaSlot` por capturas o mockups reales
-2. reforzar la landing con una seccion showcase mas potente
-3. montar blog/updates
-4. cerrar QA y deploy
+1. Reemplazar el showcase mockup por capturas reales cuando existan.
+2. Pulir copy comercial final en home y blog.
+3. Hacer QA responsive y accesibilidad.
+4. Conectar dominio final y metadata definitivas.
+5. Seguir ampliando wiki y updates a medida que el bot avance.
 
 ## Definicion de "lista para produccion"
 
 La web se considerara lista para produccion cuando:
 - toda ruta publica principal tenga copy final
 - la wiki cubra los modulos principales sin huecos grandes
-- existan capturas o mockups en los espacios visuales clave
+- existan capturas o mockups solidos en los espacios visuales clave
 - terminos y privacidad queden cerrados
 - el sitio pase QA visual y responsive
 - el deploy en Vercel con dominio real quede estable

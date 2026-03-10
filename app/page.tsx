@@ -7,16 +7,17 @@ import {
   Volume2,
   Wrench,
 } from "lucide-react";
+import { CapabilityMarquee } from "@/components/home/capability-marquee";
+import { HeroBackdrop } from "@/components/home/hero-backdrop";
+import { ShowcaseGrid } from "@/components/home/showcase-grid";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { CapabilityMarquee } from "@/components/home/capability-marquee";
-import { HeroBackdrop } from "@/components/home/hero-backdrop";
 import { CommandBadge } from "@/components/ui/command-badge";
 import { GradientText } from "@/components/ui/gradient-text";
-import { MediaSlot } from "@/components/ui/media-slot";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeader } from "@/components/ui/section-header";
+import { getAllBlogPosts } from "@/lib/blog-content";
 import { buildInviteUrl } from "@/lib/inviteUrl";
 import { withLocale } from "@/lib/site";
 
@@ -25,33 +26,39 @@ const supportUrl = process.env.NEXT_PUBLIC_SUPPORT_URL || "#";
 const featureCards = [
   {
     icon: ShieldCheck,
-    title: "Moderación y seguridad",
-    description: "Warns, sanciones, antispam, antilinks y flujos de moderación pensados para servidores activos.",
+    title: "Moderacion y seguridad",
+    description:
+      "Warns, sanciones, antispam, antilinks y flujos de moderacion pensados para servidores activos.",
   },
   {
     icon: Ticket,
     title: "Tickets y soporte",
-    description: "Sistema de tickets configurable desde Discord, con espacio reservado para documentación visual y tutoriales.",
+    description:
+      "Sistema de tickets configurable desde Discord, con espacio para ayuda clara y seguimiento real.",
   },
   {
     icon: Wrench,
-    title: "Configuración en Discord",
-    description: "La configuración principal sigue dentro de Discord con una ruta clara hacia /config para administradores.",
+    title: "Configuracion en Discord",
+    description:
+      "La configuracion principal sigue dentro de Discord con una ruta clara hacia /config para administradores.",
   },
   {
     icon: Trophy,
     title: "Niveles y sorteos",
-    description: "XP automática, rangos, sorteos y dinámicas listas para mantener activo tu servidor sin montar sistemas aparte.",
+    description:
+      "XP automatica, rangos, sorteos y dinamicas listas para mantener activo tu servidor sin montar sistemas aparte.",
   },
   {
     icon: Volume2,
     title: "TTS y voz",
-    description: "Mensajes hablados, apoyo para canales de voz y herramientas útiles para comunidades que quieren algo más dinámico.",
+    description:
+      "Mensajes hablados, apoyo para canales de voz y herramientas utiles para comunidades que quieren algo mas dinamico.",
   },
   {
     icon: BellRing,
     title: "Centro de Creadores",
-    description: "Avisos de actividad para creadores y espacios pensados para comunidades que siguen streams, videos y novedades.",
+    description:
+      "Avisos de actividad para creadores y espacios pensados para comunidades que siguen streams, videos y novedades.",
   },
 ];
 
@@ -76,14 +83,15 @@ const featureRail = [
   "Comandos de utilidad",
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
   const inviteUrl = buildInviteUrl();
+  const latestPosts = (await getAllBlogPosts()).slice(0, 2);
 
   return (
     <div className="relative z-10">
       <HeroBackdrop />
-      <section className="container py-16 md:py-24">
 
+      <section className="container py-16 md:py-24">
         <Reveal className="mx-auto max-w-4xl text-center">
           <div className="inline-flex flex-wrap items-center justify-center gap-3 rounded-full border border-border-subtle bg-surface-card/70 px-4 py-2 text-sm text-text-secondary backdrop-blur">
             <span>Bot para comunidades de Discord</span>
@@ -97,7 +105,8 @@ export default function HomePage() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-body text-text-secondary text-balance">
-            Moderación, niveles, tickets, TTS, sorteos y mucho más. Todo desde Discord, todo desde <CommandBadge command="/config" />.
+            Moderacion, niveles, tickets, TTS, sorteos y mucho mas. Todo desde Discord, todo desde{" "}
+            <CommandBadge command="/config" />.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -108,7 +117,7 @@ export default function HomePage() {
               </span>
             </Button>
             <Button href={withLocale("/wiki")} variant="secondary">
-              Ver documentación
+              Ver documentacion
             </Button>
           </div>
         </Reveal>
@@ -119,7 +128,7 @@ export default function HomePage() {
           <SectionHeader
             eyebrow="Capacidades reales"
             title="Todo lo que tu servidor necesita, sin complicaciones."
-            subtitle="71 comandos slash, 13 módulos configurables y sistemas automáticos listos desde el primer minuto."
+            subtitle="71 comandos slash, 13 modulos configurables y sistemas automaticos listos desde el primer minuto."
           />
         </Reveal>
 
@@ -145,27 +154,51 @@ export default function HomePage() {
       <section className="container py-10 md:py-14">
         <Reveal>
           <SectionHeader
-            eyebrow="Guías y ayuda"
-            title="Ayuda clara para configurar y aprovechar cada módulo"
-            subtitle="Encuentra guías, capturas, tutoriales y ejemplos para usar el bot con más facilidad."
+            eyebrow="Vista general"
+            title="Pensado para que entiendas el bot antes de configurarlo"
+            subtitle="Todo sigue pasando dentro de Discord, pero la web te ayuda a ver mejor el flujo, los modulos y lo que puedes activar."
+          />
+        </Reveal>
+
+        <Reveal>
+          <ShowcaseGrid />
+        </Reveal>
+      </section>
+
+      <section className="container py-4 md:py-8">
+        <Reveal>
+          <SectionHeader
+            eyebrow="Updates"
+            title="Novedades para seguirle el ritmo al bot"
+            subtitle="Publicaciones cortas para enterarte de cambios, modulos nuevos y avances importantes."
           />
         </Reveal>
 
         <div className="mt-8 grid gap-4 lg:grid-cols-2">
-          <Reveal>
-            <MediaSlot
-              title="Capturas del flujo de /config"
-              description="Guías visuales para entender cada ajuste y dejar el servidor listo más rápido."
-            />
-          </Reveal>
-          <Reveal>
-            <MediaSlot
-              title="Tutoriales y demos en video"
-              description="Espacio pensado para mostrar funciones clave del bot de forma simple y directa."
-              kind="video"
-            />
-          </Reveal>
+          {latestPosts.map((post) => (
+            <Reveal key={post.slug}>
+              <Card className="card-lift h-full p-6">
+                <div className="flex flex-wrap items-center gap-2">
+                  <Badge variant="default">{post.formattedDate}</Badge>
+                  <Badge variant="new">{`${post.readingMinutes} min`}</Badge>
+                </div>
+                <h2 className="mt-5 font-heading text-h3 font-bold text-text-primary">{post.title}</h2>
+                <p className="mt-3 text-body text-text-secondary">{post.description}</p>
+                <div className="mt-5">
+                  <Button href={withLocale(`/blog/${post.slug}`)} variant="secondary">
+                    Leer update
+                  </Button>
+                </div>
+              </Card>
+            </Reveal>
+          ))}
         </div>
+
+        <Reveal className="mt-6 flex justify-start">
+          <Button href={withLocale("/blog")} variant="ghost" className="px-0">
+            Ver todos los updates <ArrowRight size={16} aria-hidden />
+          </Button>
+        </Reveal>
       </section>
 
       <section className="container pb-16 md:pb-24">
@@ -176,10 +209,10 @@ export default function HomePage() {
                 Soporte y comunidad
               </p>
               <h2 className="font-heading text-h2 font-bold text-text-primary">
-                Si necesitas ayuda, el soporte oficial está a un clic.
+                Si necesitas ayuda, el soporte oficial esta a un clic.
               </h2>
               <p className="max-w-2xl text-body text-text-secondary">
-                Encuentra guías, consulta comandos y, si lo necesitas, entra al soporte para resolver dudas o problemas con tu servidor.
+                Encuentra guias, consulta comandos y, si lo necesitas, entra al soporte para resolver dudas o problemas con tu servidor.
               </p>
             </div>
             <div className="flex shrink-0 flex-col gap-3 sm:flex-row">

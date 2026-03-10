@@ -15,13 +15,16 @@ export function Footer() {
           />
           <div className="space-y-1">
             <p className="font-medium text-text-primary">ZynxFox</p>
-            <p>Creado por killershadow336 de 💖 :3</p>
+            <p>Creado por killershadow336 con amor :3</p>
           </div>
         </div>
 
         <div className="flex flex-wrap items-center gap-4">
           <a href={withLocale("/wiki")} className="transition-colors hover:text-text-primary">
-            Documentación
+            Documentacion
+          </a>
+          <a href={withLocale("/blog")} className="transition-colors hover:text-text-primary">
+            Updates
           </a>
           <a href={withLocale("/soporte")} className="transition-colors hover:text-text-primary">
             Soporte
@@ -30,7 +33,7 @@ export function Footer() {
             Privacidad
           </a>
           <a href={withLocale("/terminos")} className="transition-colors hover:text-text-primary">
-            Términos
+            Terminos
           </a>
         </div>
       </div>

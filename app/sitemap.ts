@@ -1,15 +1,23 @@
 import type { MetadataRoute } from "next";
+import { getAllBlogPosts } from "@/lib/blog-content";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const posts = await getAllBlogPosts();
+
   return [
     { url: `${siteUrl}/`, lastModified: new Date() },
+    { url: `${siteUrl}/blog`, lastModified: new Date() },
     { url: `${siteUrl}/wiki`, lastModified: new Date() },
     { url: `${siteUrl}/comandos`, lastModified: new Date() },
     { url: `${siteUrl}/soporte`, lastModified: new Date() },
     { url: `${siteUrl}/privacidad`, lastModified: new Date() },
     { url: `${siteUrl}/terminos`, lastModified: new Date() },
     { url: `${siteUrl}/apoyo`, lastModified: new Date() },
+    ...posts.map((post) => ({
+      url: `${siteUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.date),
+    })),
   ];
 }
