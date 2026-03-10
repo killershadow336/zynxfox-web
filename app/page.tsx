@@ -91,9 +91,9 @@ export default async function HomePage() {
     <div className="relative z-10">
       <HeroBackdrop />
 
-      <section className="container py-16 md:py-24">
+      <section className="container py-14 md:py-24">
         <Reveal className="mx-auto max-w-4xl text-center">
-          <div className="inline-flex flex-wrap items-center justify-center gap-3 rounded-full border border-border-subtle bg-surface-card/70 px-4 py-2 text-sm text-text-secondary backdrop-blur">
+          <div className="inline-flex max-w-full flex-wrap items-center justify-center gap-2 rounded-full border border-border-subtle bg-surface-card/70 px-3 py-2 text-xs text-text-secondary backdrop-blur sm:gap-3 sm:px-4 sm:text-sm">
             <span>Bot para comunidades de Discord</span>
             <Badge variant="success" dot>
               Online
@@ -109,14 +109,14 @@ export default async function HomePage() {
             <CommandBadge command="/config" />.
           </p>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button href={inviteUrl}>
+          <div className="mt-10 flex w-full flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+            <Button href={inviteUrl} className="w-full sm:w-auto">
               Invitar al bot{" "}
               <span className="button-arrow-loop" aria-hidden>
                 <ArrowRight size={16} />
               </span>
             </Button>
-            <Button href={withLocale("/wiki")} variant="secondary">
+            <Button href={withLocale("/wiki")} variant="secondary" className="w-full sm:w-auto">
               Ver documentacion
             </Button>
           </div>

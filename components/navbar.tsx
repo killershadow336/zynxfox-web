@@ -37,7 +37,7 @@ export function Navbar() {
       <div className="container flex h-[var(--navbar-h)] items-center justify-between gap-4">
         <Link
           href={withLocale("/") as any}
-          className="inline-flex items-center gap-3 text-text-primary transition-colors hover:text-white"
+          className="inline-flex min-w-0 items-center gap-2 text-text-primary transition-colors hover:text-white sm:gap-3"
           aria-label="Ir al inicio de ZynxFox"
         >
           <span className="brand-mark">
@@ -45,13 +45,15 @@ export function Navbar() {
             <Image
               src="/zynxfox.png"
               alt="Logo de ZynxFox"
-              width={34}
-              height={34}
+              width={32}
+              height={32}
               className="relative rounded-[10px]"
               priority
             />
           </span>
-          <span className="font-heading text-xl font-extrabold tracking-tight">ZynxFox</span>
+          <span className="truncate font-heading text-lg font-extrabold tracking-tight sm:text-xl">
+            ZynxFox
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">
@@ -77,7 +79,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-button border border-border-subtle bg-surface-card text-text-primary md:hidden"
+          className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-button border border-border-subtle bg-surface-card text-text-primary md:hidden"
           onClick={() => setOpen((value) => !value)}
           aria-expanded={open}
           aria-controls="mobile-nav"
@@ -99,7 +101,7 @@ export function Navbar() {
             <Link
               key={item.href}
               href={item.href as any}
-              className="rounded-button px-1 py-2 text-sm text-text-secondary transition-colors hover:text-text-primary"
+              className="rounded-button px-1 py-2 text-base text-text-secondary transition-colors hover:text-text-primary"
             >
               {item.label}
             </Link>
