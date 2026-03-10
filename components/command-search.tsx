@@ -1,81 +1,103 @@
 "use client";
+
+import type React from "react";
 import { useMemo, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
+import { CommandBadge } from "@/components/ui/command-badge";
+import { cn } from "@/utils/cn";
 
 type Cmd = { name: string; desc: string; cat: string };
 
 export function CommandSearch({ commands }: { commands: Cmd[] }) {
-  const [q, setQ] = useState("");
-  const [cat, setCat] = useState<string | null>(null);
+  const [query, setQuery] = useState("");
+  const [category, setCategory] = useState<string | null>(null);
 
   const categories = useMemo(() => {
     const set = new Set<string>();
-    commands.forEach((c) => set.add(c.cat));
+    commands.forEach((command) => set.add(command.cat));
     return Array.from(set).sort((a, b) => a.localeCompare(b));
   }, [commands]);
 
   const filtered = useMemo(() => {
-    const term = q.trim().toLowerCase();
-    return commands.filter((c) => {
-      const matchesTerm = !term || `${c.name} ${c.desc} ${c.cat}`.toLowerCase().includes(term);
-      const matchesCat = !cat || c.cat === cat;
-      return matchesTerm && matchesCat;
+    const term = query.trim().toLowerCase();
+    return commands.filter((command) => {
+      const haystack = `${command.name} ${command.desc} ${command.cat}`.toLowerCase();
+      return (!term || haystack.includes(term)) && (!category || command.cat === category);
     });
-  }, [q, cat, commands]);
+  }, [category, commands, query]);
 
   return (
-    <div className="mt-6">
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <input
-          placeholder="Buscar comandos..."
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm text-white outline-none placeholder:text-zinc-400 focus:border-brand-500"
-        />
-        <div className="flex flex-wrap gap-2">
-          <button
-            onClick={() => setCat(null)}
-            className={`rounded-md border px-3 py-1 text-xs transition ${cat === null ? "border-brand-500 bg-brand-500/20 text-white" : "border-white/10 bg-white/5 text-zinc-300 hover:bg-white/10"}`}
-          >
-            Todas
-          </button>
-          {categories.map((c) => (
-            <button
-              key={c}
-              onClick={() => setCat(c === cat ? null : c)}
-              className={`rounded-md border px-3 py-1 text-xs transition ${cat === c ? "border-brand-500 bg-brand-500/20 text-white" : "border-white/10 bg-white/5 text-zinc-300 hover:bg-white/10"}`}
-            >
-              {c}
-            </button>
-          ))}
+    <div className="mt-10 space-y-6">
+      <div className="surface-card p-4">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <label className="block flex-1">
+            <span className="sr-only">Buscar comandos</span>
+            <input
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Buscar por nombre, descripción o categoría"
+              className="w-full rounded-card border border-border-subtle bg-surface-elevated px-4 py-3 text-sm text-text-primary outline-none placeholder:text-text-muted focus:border-brand-purple"
+            />
+          </label>
+          <div className="flex flex-wrap gap-2">
+            <FilterChip active={category === null} onClick={() => setCategory(null)}>
+              Todas
+            </FilterChip>
+            {categories.map((item) => (
+              <FilterChip
+                key={item}
+                active={category === item}
+                onClick={() => setCategory(item === category ? null : item)}
+              >
+                {item}
+              </FilterChip>
+            ))}
+          </div>
+        </div>
+        <div className="mt-4 text-sm text-text-secondary">
+          {filtered.length} resultado(s) sobre datos reales del bot.
         </div>
       </div>
 
-      <div className="mt-2 text-xs text-zinc-400">{filtered.length} resultado(s)</div>
-
-      <div className="relative mt-4">
-        <div className="grid grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2">
-          <AnimatePresence mode="popLayout">
-            {filtered.map((c) => (
-              <motion.div
-                key={c.name}
-                layout
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -6 }}
-                transition={{ duration: 0.12 }}
-                className="rounded-lg border border-white/10 bg-white/5 p-4 transition hover:border-white/20 hover:bg-white/[0.08]"
-              >
-                <div className="flex items-center justify-between">
-                  <h3 className="font-semibold text-white">{c.name}</h3>
-                  <span className="text-xs text-zinc-400">{c.cat}</span>
-                </div>
-                <p className="mt-1 text-sm text-zinc-400">{c.desc}</p>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
+      <div className="grid gap-4 md:grid-cols-2">
+        {filtered.map((command) => (
+          <Card key={command.name} className="p-5">
+            <div className="flex items-start justify-between gap-3">
+              <div className="space-y-3">
+                <CommandBadge command={command.name} />
+                <p className="text-sm text-text-secondary">{command.desc}</p>
+              </div>
+              <Badge variant="default">{command.cat}</Badge>
+            </div>
+          </Card>
+        ))}
       </div>
     </div>
+  );
+}
+
+function FilterChip({
+  active,
+  children,
+  onClick,
+}: {
+  active: boolean;
+  children: React.ReactNode;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={cn(
+        "rounded-full border px-3 py-1.5 text-xs font-medium transition-all duration-fast ease-out-quint",
+        active
+          ? "border-brand-purple bg-brand-purple/10 text-brand-purple"
+          : "border-border-subtle bg-surface-card text-text-secondary hover:border-brand-purple hover:text-text-primary"
+      )}
+    >
+      {children}
+    </button>
   );
 }

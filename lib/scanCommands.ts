@@ -1,45 +1,55 @@
 import fs from "fs";
 import path from "path";
+import bundledCommands from "@/data/commands.generated.json";
 
 export type Cmd = { name: string; desc: string; cat: string };
 
 function extractSlashMeta(source: string, fallbackName: string): { name: string; desc: string } {
   const nameMatch = source.match(/\.setName\(["'`]([^"'`]+)["'`]\)/);
   const descMatch = source.match(/\.setDescription\(["'`]([^"'`]+)["'`]\)/);
-  const name = nameMatch?.[1] || fallbackName;
-  const desc = descMatch?.[1] || "Descripción no disponible.";
-  return { name, desc };
+  return {
+    name: nameMatch?.[1] || fallbackName,
+    desc: descMatch?.[1] || "Descripción no disponible.",
+  };
 }
 
 function extractPrefixMeta(source: string, fallbackName: string): { name: string; desc: string } {
   const nameMatch = source.match(/\bname\s*:\s*["'`]([^"'`]+)["'`]/);
   const descMatch = source.match(/\bdescription\s*:\s*["'`]([^"'`]+)["'`]/);
-  const name = nameMatch?.[1] || fallbackName;
-  const desc = descMatch?.[1] || "Descripción no disponible.";
-  return { name, desc };
+  return {
+    name: nameMatch?.[1] || fallbackName,
+    desc: descMatch?.[1] || "Descripción no disponible.",
+  };
 }
 
-function safeReadDir(p: string) {
+function safeReadDir(target: string) {
   try {
-    return fs.readdirSync(p, { withFileTypes: true });
+    return fs.readdirSync(target, { withFileTypes: true });
   } catch {
     return [] as fs.Dirent[];
   }
 }
 
+function isCommandSource(name: string) {
+  return name.endsWith(".ts") || name.endsWith(".js");
+}
+
 function scanSlashCommands(dir: string): Cmd[] {
   const result: Cmd[] = [];
-  const cats = safeReadDir(dir).filter((d) => d.isDirectory());
-  for (const cat of cats) {
-    const catPath = path.join(dir, cat.name);
-    const files = safeReadDir(catPath).filter((f) => f.isFile() && f.name.endsWith(".js"));
+  const categories = safeReadDir(dir).filter((entry) => entry.isDirectory());
+  for (const category of categories) {
+    const categoryPath = path.join(dir, category.name);
+    const files = safeReadDir(categoryPath).filter((entry) => entry.isFile() && isCommandSource(entry.name));
     for (const file of files) {
-      const filePath = path.join(catPath, file.name);
       try {
-        const src = fs.readFileSync(filePath, "utf8");
-        const base = path.basename(file.name, ".js");
-        const meta = extractSlashMeta(src, base);
-        result.push({ name: meta.name.startsWith("/") ? meta.name : `/${meta.name}`, desc: meta.desc, cat: cat.name });
+        const source = fs.readFileSync(path.join(categoryPath, file.name), "utf8");
+        const fallbackName = path.basename(file.name, path.extname(file.name));
+        const meta = extractSlashMeta(source, fallbackName);
+        result.push({
+          name: meta.name.startsWith("/") ? meta.name : `/${meta.name}`,
+          desc: meta.desc,
+          cat: category.name,
+        });
       } catch {}
     }
   }
@@ -48,26 +58,43 @@ function scanSlashCommands(dir: string): Cmd[] {
 
 function scanPrefixCommands(dir: string): Cmd[] {
   const result: Cmd[] = [];
-  const files = safeReadDir(dir).filter((f) => f.isFile() && f.name.endsWith(".js"));
+  const files = safeReadDir(dir).filter((entry) => entry.isFile() && isCommandSource(entry.name));
   for (const file of files) {
     try {
-      const src = fs.readFileSync(path.join(dir, file.name), "utf8");
-      const base = path.basename(file.name, ".js");
-      const meta = extractPrefixMeta(src, base);
+      const source = fs.readFileSync(path.join(dir, file.name), "utf8");
+      const fallbackName = path.basename(file.name, path.extname(file.name));
+      const meta = extractPrefixMeta(source, fallbackName);
       result.push({ name: meta.name, desc: meta.desc, cat: "prefix" });
     } catch {}
   }
   return result;
 }
 
+function dedupeCommands(commands: Cmd[]) {
+  const map = new Map<string, Cmd>();
+  for (const cmd of commands) {
+    const key = cmd.name.replace(/^\//, "").toLowerCase();
+    const existing = map.get(key);
+    if (!existing) {
+      map.set(key, cmd);
+      continue;
+    }
+    const isNewSlash = cmd.name.startsWith("/");
+    const isOldSlash = existing.name.startsWith("/");
+    if (isNewSlash && !isOldSlash) map.set(key, cmd);
+  }
+  return Array.from(map.values()).sort((a, b) => a.cat.localeCompare(b.cat) || a.name.localeCompare(b.name));
+}
+
 export function scanAllCommands(): Cmd[] {
   const result: Cmd[] = [];
-  const root = process.cwd(); // web/
+  const root = process.cwd();
   const slashCandidates = [
     process.env.COMMANDS_DIR,
     path.resolve(root, "..", "commands"),
     path.resolve(root, "..", "Commands"),
   ].filter(Boolean) as string[];
+
   for (const base of slashCandidates) result.push(...scanSlashCommands(base));
 
   const prefixCandidates = [
@@ -75,23 +102,12 @@ export function scanAllCommands(): Cmd[] {
     path.resolve(root, "..", "Commands_prefix"),
     path.resolve(root, "..", "commands_prefix"),
   ].filter(Boolean) as string[];
+
   for (const base of prefixCandidates) result.push(...scanPrefixCommands(base));
 
-  // Deduplicar por nombre (ignorando prefijo '/') priorizando comandos slash
-  const map = new Map<string, Cmd>();
-  for (const cmd of result) {
-    const key = cmd.name.replace(/^\//, "").toLowerCase();
-    const existing = map.get(key);
-    if (!existing) {
-      map.set(key, cmd);
-      continue;
-    }
-    // Si ya existe, preferimos el que comienza con '/'
-    const isNewSlash = cmd.name.startsWith("/");
-    const isOldSlash = existing.name.startsWith("/");
-    if (isNewSlash && !isOldSlash) map.set(key, cmd);
+  if (result.length === 0) {
+    return dedupeCommands((bundledCommands as Cmd[]) || []);
   }
-  const unique = Array.from(map.values());
-  unique.sort((a, b) => a.cat.localeCompare(b.cat) || a.name.localeCompare(b.name));
-  return unique;
+
+  return dedupeCommands(result);
 }

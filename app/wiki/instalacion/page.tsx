@@ -1,34 +1,52 @@
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Callout } from "@/components/ui/callout";
+import { CommandBadge } from "@/components/ui/command-badge";
 import { buildInviteUrl } from "@/utils/inviteUrl";
 
 export default function InstalacionPage() {
-  const invite = buildInviteUrl();
+  const inviteUrl = buildInviteUrl();
+
   return (
-    <article className="prose prose-invert max-w-none">
-      <h1>Instalación (invitar el bot)</h1>
+    <article className="doc-content">
+      <h1>Instalación</h1>
       <p>
-        Para empezar, invita ZynxFox a tu servidor con los permisos recomendados.
+        Invita ZynxFox al servidor y deja listo el flujo base para empezar a configurar módulos desde Discord.
       </p>
-      {invite && invite.includes("client_id=") ? (
-        <p>
-          <a href={invite} className="rounded bg-white/10 px-3 py-2 text-white hover:bg-white/20">Invitar ZynxFox</a>
-        </p>
-      ) : (
-        <p className="text-zinc-400">El enlace de invitación no está disponible. Pídele al administrador del bot que lo comparta.</p>
-      )}
-      <h2>Requisitos</h2>
+
+      <Callout variant="info" title="Antes de empezar">
+        La configuración pública del bot sigue viviendo en Discord. El punto de partida real es <CommandBadge command="/config" />.
+      </Callout>
+
+      <h2>Qué necesitas</h2>
       <ul>
-        <li>Rol con permisos de administrador o gestión de servidores.</li>
-        <li>Permisos de Enviar mensajes y Insertar enlaces en el canal de anuncios.</li>
+        <li>Permisos para invitar aplicaciones al servidor.</li>
+        <li>Capacidad de gestionar canales, roles o configuraciones según el módulo que vayas a activar.</li>
+        <li>Un canal donde el bot pueda responder y mostrar paneles o mensajes de ayuda.</li>
       </ul>
-      <h2>Pasos rápidos</h2>
+
+      <h2>Pasos recomendados</h2>
       <ol>
-        <li>Invita el bot con el enlace anterior.</li>
-        <li>En tu servidor, escribe <code>/config</code> para abrir el panel.</li>
-        <li>Selecciona el canal donde quieres los anuncios del bot.</li>
+        <li>Invita el bot con el enlace oficial.</li>
+        <li>Comprueba que el rol del bot esté por encima de los usuarios o roles que deba gestionar.</li>
+        <li>Abre <CommandBadge command="/config" /> y revisa los módulos que quieras activar primero.</li>
+        <li>Haz una prueba básica de respuesta antes de tocar módulos más complejos.</li>
       </ol>
+
+      <h2>Comprobación rápida después de invitarlo</h2>
+      <ul>
+        <li>El bot aparece online en el servidor.</li>
+        <li>Puede responder en el canal elegido.</li>
+        <li>Los embeds y botones se muestran correctamente.</li>
+        <li>No hay bloqueos por jerarquía de roles.</li>
+      </ul>
+
       <p>
-        ¿Primeros pasos? Ve a <Link href={"/wiki/configuracion-inicial" as any}>Configuración inicial</Link>.
+        <Button href={inviteUrl}>Invitar ZynxFox</Button>
+      </p>
+
+      <p>
+        Después de invitarlo, sigue con <Link href={"/wiki/configuracion-inicial" as any}>Configuración inicial</Link>.
       </p>
     </article>
   );

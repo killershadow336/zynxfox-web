@@ -1,13 +1,37 @@
+import Image from "next/image";
+import { withLocale } from "@/lib/site";
+
 export function Footer() {
   return (
-  <footer className="border-t border-white/10 py-8 backdrop-blur-[1px] bg-black/10">
-      <div className="container flex flex-col items-center justify-between gap-3 text-sm text-zinc-400 sm:flex-row">
-        <p>
-          © {new Date().getFullYear()} Eclipse Studios. Hecho con ❤️ por ohiostate — Wiki e información del bot.
-        </p>
-        <div className="flex items-center gap-4">
-          <a href="/privacidad" className="transition hover:text-white">Privacidad</a>
-          <a href="/terminos" className="transition hover:text-white">Términos</a>
+    <footer className="relative z-10 border-t border-border-subtle bg-[rgba(7,8,13,0.82)] py-8 backdrop-blur-xl">
+      <div className="container flex flex-col gap-5 text-sm text-text-secondary md:flex-row md:items-center md:justify-between">
+        <div className="flex items-center gap-3">
+          <Image
+            src="/zynxfox.png"
+            alt="Logo de ZynxFox"
+            width={36}
+            height={36}
+            className="rounded-[10px]"
+          />
+          <div className="space-y-1">
+            <p className="font-medium text-text-primary">ZynxFox</p>
+            <p>Creado por killershadow336 de 💖 :3</p>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-4">
+          <a href={withLocale("/wiki")} className="transition-colors hover:text-text-primary">
+            Documentación
+          </a>
+          <a href={withLocale("/soporte")} className="transition-colors hover:text-text-primary">
+            Soporte
+          </a>
+          <a href={withLocale("/privacidad")} className="transition-colors hover:text-text-primary">
+            Privacidad
+          </a>
+          <a href={withLocale("/terminos")} className="transition-colors hover:text-text-primary">
+            Términos
+          </a>
         </div>
       </div>
     </footer>

@@ -1,0 +1,467 @@
+[
+  {
+    "name": "/config",
+    "desc": "🦊 Configura los módulos del bot.",
+    "cat": "admin"
+  },
+  {
+    "name": "/embed",
+    "desc": "📝 Crea un embed personalizado y envíalo a un canal",
+    "cat": "admin"
+  },
+  {
+    "name": "/modmail",
+    "desc": "Configura y administra el sistema Modmail",
+    "cat": "admin"
+  },
+  {
+    "name": "/8ball",
+    "desc": "🔮 Consulta la bola mágica y obtén una respuesta del destino",
+    "cat": "fun"
+  },
+  {
+    "name": "/adivina",
+    "desc": "🔢 Intenta adivinar un número secreto del 1 al 100 en 3 intentos",
+    "cat": "fun"
+  },
+  {
+    "name": "/choose",
+    "desc": "🎲 Elige aleatoriamente entre varias opciones",
+    "cat": "fun"
+  },
+  {
+    "name": "/coin",
+    "desc": "🪙 Lanza una moneda al aire y prueba tu suerte",
+    "cat": "fun"
+  },
+  {
+    "name": "/confess",
+    "desc": "🤫 Envía una confesión anónima al canal actual",
+    "cat": "fun"
+  },
+  {
+    "name": "/cuddle",
+    "desc": "💕 Acurrúcate con alguien de forma tierna",
+    "cat": "fun"
+  },
+  {
+    "name": "/cumplido",
+    "desc": "🌹 Envía un cumplido bonito para alegrarle el día a alguien",
+    "cat": "fun"
+  },
+  {
+    "name": "/dice",
+    "desc": "🎲 Tira un dado de las caras que quieras",
+    "cat": "fun"
+  },
+  {
+    "name": "/divorce",
+    "desc": "💔 Divorciarte de tu pareja actual",
+    "cat": "fun"
+  },
+  {
+    "name": "/duel",
+    "desc": "⚔️ Reta a alguien a un duelo épico por turnos",
+    "cat": "fun"
+  },
+  {
+    "name": "/fact",
+    "desc": "� Descubre un dato curioso que no sabías",
+    "cat": "fun"
+  },
+  {
+    "name": "/gato",
+    "desc": "� Recibe una foto aleatoria de un gatito adorable",
+    "cat": "fun"
+  },
+  {
+    "name": "/hangman",
+    "desc": "🎯 Juega al ahorcado adivinando letra por letra",
+    "cat": "fun"
+  },
+  {
+    "name": "/highfive",
+    "desc": "✋ Choca los cinco con alguien para celebrar",
+    "cat": "fun"
+  },
+  {
+    "name": "/hug",
+    "desc": "🤗 Dale un abrazo cálido a alguien del servidor",
+    "cat": "fun"
+  },
+  {
+    "name": "/kiss",
+    "desc": "💋 Dale un beso a otro usuario y lleva la cuenta",
+    "cat": "fun"
+  },
+  {
+    "name": "/marry",
+    "desc": "💍 Pide matrimonio a alguien",
+    "cat": "fun"
+  },
+  {
+    "name": "/meme",
+    "desc": "😆 Meme aleatorio directo desde Reddit",
+    "cat": "fun"
+  },
+  {
+    "name": "/memory",
+    "desc": "🧠 Encuentra todos los pares de emojis ocultos",
+    "cat": "fun"
+  },
+  {
+    "name": "/pat",
+    "desc": "🧡 Dale palmaditas cariñosas a alguien",
+    "cat": "fun"
+  },
+  {
+    "name": "/rate",
+    "desc": "🎯 Puntúo lo que quieras del 0 al 100 con un veredicto",
+    "cat": "fun"
+  },
+  {
+    "name": "/rps",
+    "desc": "✊🖐️✌️ Juega Piedra, Papel o Tijera contra el bot o un amigo",
+    "cat": "fun"
+  },
+  {
+    "name": "/ship",
+    "desc": "💘 Mide la compatibilidad romántica entre dos personas",
+    "cat": "fun"
+  },
+  {
+    "name": "/slap",
+    "desc": "👋 Dale una bofetada divertida a alguien",
+    "cat": "fun"
+  },
+  {
+    "name": "/snake",
+    "desc": "🐍 Juega a la serpiente clásica directamente en Discord",
+    "cat": "fun"
+  },
+  {
+    "name": "/sybau",
+    "desc": "🍳 hola, esto hace que el bot te cocine el almuerzo🥀",
+    "cat": "fun"
+  },
+  {
+    "name": "/trivia",
+    "desc": "🧩 Pon a prueba tus conocimientos con preguntas de opción múltiple",
+    "cat": "fun"
+  },
+  {
+    "name": "/truthordare",
+    "desc": "🎭 Juega Verdad o Reto con preguntas y desafíos aleatorios",
+    "cat": "fun"
+  },
+  {
+    "name": "/wouldyourather",
+    "desc": "🤷 ¿Qué preferirías? Vota entre dos opciones",
+    "cat": "fun"
+  },
+  {
+    "name": "/apis",
+    "desc": "📡 Información sobre las APIs que usa el bot",
+    "cat": "info"
+  },
+  {
+    "name": "/channel",
+    "desc": "� Información detallada sobre un canal del servidor",
+    "cat": "info"
+  },
+  {
+    "name": "/info",
+    "desc": "ℹ️ Estadísticas, versión y detalles técnicos del bot",
+    "cat": "info"
+  },
+  {
+    "name": "/leaderboard",
+    "desc": "🏆 Muestra el ranking de niveles del servidor",
+    "cat": "info"
+  },
+  {
+    "name": "/nivel",
+    "desc": "🌟 Consulta el nivel y experiencia de un usuario",
+    "cat": "info"
+  },
+  {
+    "name": "/rank",
+    "desc": "📊 Consulta tu nivel, XP y progreso o el de otro usuario",
+    "cat": "info"
+  },
+  {
+    "name": "/roleinfo",
+    "desc": "🎨 Información detallada sobre un rol del servidor",
+    "cat": "info"
+  },
+  {
+    "name": "/serverinfo",
+    "desc": "🏠 Estadísticas y detalles completos del servidor",
+    "cat": "info"
+  },
+  {
+    "name": "/user",
+    "desc": "👤 Información detallada de un usuario del servidor",
+    "cat": "info"
+  },
+  {
+    "name": "/ausencia",
+    "desc": "📅 Registra un aviso de ausencia del staff en el canal configurado",
+    "cat": "moderation"
+  },
+  {
+    "name": "/ban",
+    "desc": "🔨 Banea permanentemente a un usuario del servidor",
+    "cat": "moderation"
+  },
+  {
+    "name": "/delwarns",
+    "desc": "🧹 Borra todas las advertencias de un usuario",
+    "cat": "moderation"
+  },
+  {
+    "name": "/kick",
+    "desc": "👢 Expulsa a un usuario del servidor",
+    "cat": "moderation"
+  },
+  {
+    "name": "/levels",
+    "desc": "Activa el módulo de niveles en el panel de configuración para gestionar usuarios.",
+    "cat": "moderation"
+  },
+  {
+    "name": "/lock",
+    "desc": "🔒 Bloquea un canal impidiendo que los miembros envíen mensajes",
+    "cat": "moderation"
+  },
+  {
+    "name": "/mute",
+    "desc": "🔇 Silencia temporalmente a un usuario con timeout",
+    "cat": "moderation"
+  },
+  {
+    "name": "/nuke",
+    "desc": "💣 Limpia todos los mensajes del canal clonándolo",
+    "cat": "moderation"
+  },
+  {
+    "name": "/purge",
+    "desc": "🧹 Elimina mensajes del canal con distintos filtros",
+    "cat": "moderation"
+  },
+  {
+    "name": "/quickmod",
+    "desc": "⚡ Aplica sanciones rápidas: warn, timeout, kick o ban",
+    "cat": "moderation"
+  },
+  {
+    "name": "/role",
+    "desc": "${actionLabel} el rol **${role.name}** a/de **${totalMembers}** miembros...",
+    "cat": "moderation"
+  },
+  {
+    "name": "/tempban",
+    "desc": "⏱️ Banea temporalmente a un usuario por un tiempo determinado",
+    "cat": "moderation"
+  },
+  {
+    "name": "/unban",
+    "desc": "✅ Desbanea a un usuario usando su ID",
+    "cat": "moderation"
+  },
+  {
+    "name": "/unlock",
+    "desc": "🔓 Desbloquea un canal para que los miembros puedan escribir",
+    "cat": "moderation"
+  },
+  {
+    "name": "/unmute",
+    "desc": "🔊 Quita el silencio de un usuario",
+    "cat": "moderation"
+  },
+  {
+    "name": "/warn",
+    "desc": "⚠️ Añade una advertencia a un usuario con motivo",
+    "cat": "moderation"
+  },
+  {
+    "name": "/warnings",
+    "desc": "📋 Consulta y gestiona las advertencias de un usuario",
+    "cat": "moderation"
+  },
+  {
+    "name": "/whois",
+    "desc": "🔍 Muestra información detallada de un miembro (enfocado en moderación)",
+    "cat": "moderation"
+  },
+  {
+    "name": "Archivos",
+    "desc": "Reproduce un audio local del bot en tu canal de voz actual.",
+    "cat": "prefix"
+  },
+  {
+    "name": "backup",
+    "desc": "Gestiona los backups de la base de datos (solo owner)",
+    "cat": "prefix"
+  },
+  {
+    "name": "betaaccess",
+    "desc": "Gestiona acceso a funciones beta por servidor (solo owner del bot)",
+    "cat": "prefix"
+  },
+  {
+    "name": "configstats",
+    "desc": "Muestra métricas de interacciones del panel /config. Opcional: reset",
+    "cat": "prefix"
+  },
+  {
+    "name": "eval",
+    "desc": "Ejecuta código JavaScript arbitrario (Modo Dios).",
+    "cat": "prefix"
+  },
+  {
+    "name": "leaveguild",
+    "desc": "Hace que el bot abandone un servidor por ID o el actual (solo owner, con confirmación)",
+    "cat": "prefix"
+  },
+  {
+    "name": "owner",
+    "desc": "Panel administrativo del owner con flujo por vistas.",
+    "cat": "prefix"
+  },
+  {
+    "name": "restart",
+    "desc": "Reinicia el bot (solo owner)",
+    "cat": "prefix"
+  },
+  {
+    "name": "servers",
+    "desc": "Muestra todos los servidores donde está el bot (solo owner)",
+    "cat": "prefix"
+  },
+  {
+    "name": "testnotify",
+    "desc": "Prueba manual de notificaciones de join/leave (solo owner).",
+    "cat": "prefix"
+  },
+  {
+    "name": "/afk",
+    "desc": "💤 Ponerte en modo AFK — se notificará cuando te mencionen",
+    "cat": "utility"
+  },
+  {
+    "name": "/avatar",
+    "desc": "🖼️ Muestra el avatar de un usuario en tamaño completo",
+    "cat": "utility"
+  },
+  {
+    "name": "/baneados",
+    "desc": "🚫 Muestra la lista de usuarios baneados del servidor",
+    "cat": "utility"
+  },
+  {
+    "name": "/banner",
+    "desc": "🎨 Muestra el banner de un usuario en tamaño completo",
+    "cat": "utility"
+  },
+  {
+    "name": "/giveaway",
+    "desc": "🎉 Sistema de sorteos robusto y persistente",
+    "cat": "utility"
+  },
+  {
+    "name": "/help",
+    "desc": "Banner de ayuda",
+    "cat": "utility"
+  },
+  {
+    "name": "/mc",
+    "desc": "🎮 Comandos de Minecraft",
+    "cat": "utility"
+  },
+  {
+    "name": "/password",
+    "desc": "🔐 Genera una contraseña aleatoria segura con opciones personalizables",
+    "cat": "utility"
+  },
+  {
+    "name": "/ping",
+    "desc": "📡 Comprueba la latencia, uptime y estado del bot",
+    "cat": "utility"
+  },
+  {
+    "name": "/poll",
+    "desc": "� Crea una encuesta rápida con hasta 5 opciones para votar",
+    "cat": "utility"
+  },
+  {
+    "name": "/proveedor",
+    "desc": "Proveedor del creador",
+    "cat": "utility"
+  },
+  {
+    "name": "/reaccionar",
+    "desc": "� Añade una reacción con emoji a un mensaje específico",
+    "cat": "utility"
+  },
+  {
+    "name": "/remind",
+    "desc": "⏰ Programa un recordatorio y recibe una notificación cuando se cumpla",
+    "cat": "utility"
+  },
+  {
+    "name": "/reminders",
+    "desc": "�️ Consulta y gestiona tus recordatorios activos",
+    "cat": "utility"
+  },
+  {
+    "name": "/reportar",
+    "desc": "📨 Reporta un bug o problema del bot directamente al equipo",
+    "cat": "utility"
+  },
+  {
+    "name": "/say",
+    "desc": "🗣️ Envía un mensaje al canal actual",
+    "cat": "utility"
+  },
+  {
+    "name": "/slowmode",
+    "desc": "🕒 Configura o desactiva el modo lento en un canal",
+    "cat": "utility"
+  },
+  {
+    "name": "/sugerir",
+    "desc": "💡 Envía una sugerencia de mejora al equipo del bot",
+    "cat": "utility"
+  },
+  {
+    "name": "/timestamp",
+    "desc": "🕐 Genera timestamps de Discord con formato relativo o absoluto",
+    "cat": "utility"
+  },
+  {
+    "name": "/tts",
+    "desc": "Convierte texto a audio y lo envia como archivo de voz",
+    "cat": "utility"
+  },
+  {
+    "name": "/wiki",
+    "desc": "Banner wiki",
+    "cat": "utility"
+  },
+  {
+    "name": "/join",
+    "desc": "Conecta al bot a tu canal de voz para leer mensajes TTS",
+    "cat": "voice system"
+  },
+  {
+    "name": "/leave",
+    "desc": "🔇 Desconecta al bot del canal de voz actual",
+    "cat": "voice system"
+  },
+  {
+    "name": "/ttspitch",
+    "desc": "🎵 Cambia el tono de la voz TTS entre normal, femenino o grave",
+    "cat": "voice system"
+  }
+]

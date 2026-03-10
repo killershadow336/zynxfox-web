@@ -1,0 +1,222 @@
+---
+title: "Política de Privacidad"
+description: "Cómo ZynxFox Bot recopila, almacena y protege los datos de los servidores y usuarios de Discord."
+slug: "privacidad"
+lastUpdated: "2026-04-09"
+version: "1.0"
+---
+
+import { Callout } from '@/components/ui/callout'
+
+# Política de Privacidad
+
+<div className="text-text-secondary text-sm mb-8">
+  Versión 1.0 · 9 de abril de 2026
+</div>
+
+---
+
+## Artículo 01 — Quiénes Somos
+
+ZynxFox Bot es un bot de Discord de propósito general desarrollado de forma independiente, sin personalidad jurídica formal. El responsable del tratamiento es el desarrollador de ZynxFox Bot, identificable a través del servidor oficial de soporte en Discord.
+
+El bot opera sobre Node.js con TypeScript, Discord.js v14, y almacena datos en MongoDB Atlas con respaldo en SQLite y archivos JSON locales. Esta política ha sido redactada teniendo en cuenta la normativa aplicable en Bolivia, las garantías constitucionales de privacidad e intimidad, y principios internacionales de buena práctica en materia de protección de datos y tratamiento responsable de la información.
+
+<Callout variant="info">
+  **Naturaleza de los datos:** ZynxFox Bot no recopila nombres reales, correos electrónicos, teléfonos ni datos de identificación directa ajenos a Discord. Opera principalmente con identificadores numéricos de Discord y, cuando una función lo requiere, también procesa datos visibles dentro de Discord como nombres mostrados, avatares, textos enviados voluntariamente, motivos de acciones o enlaces/adjuntos compartidos por el propio usuario o por la administración del servidor.
+</Callout>
+
+---
+
+## Artículo 02 — Datos Recopilados
+
+El bot recopila únicamente los datos estrictamente necesarios para proporcionar sus funcionalidades:
+
+| Dato recopilado | Finalidad | Almacenamiento | Criticidad |
+|---|---|---|---|
+| Guild ID (ID de servidor) | Identificar config y datos de cada servidor | MongoDB serverconfigs / SQLite | Alta |
+| Channel ID (ID de canal) | Canales configurados para envíos del bot | MongoDB serverconfigs | Alta |
+| Role ID (ID de rol) | Permisos, recompensas, configuración de acceso | MongoDB serverconfigs | Alta |
+| User ID (ID de usuario) | Niveles, advertencias, sorteos, modmail, social | MongoDB colecciones / SQLite | Alta |
+| Config completa del servidor | Persistir preferencias de todos los módulos | MongoDB serverconfigs / SQLite | Alta |
+| XP y nivel de usuario | Leaderboard, rango y roles por nivel | MongoDB levelprogress / SQLite | Media |
+| Historial de advertencias | Reincidencias y acciones automáticas | MongoDB warns / JSON | Media |
+| Historial de sanciones | Log de acciones de moderación | MongoDB sanctions / JSON | Media |
+| Datos de sorteos | Participantes, requisitos, estado y fechas | MongoDB giveaways / JSON | Media |
+| Datos de sugerencias | Texto de la sugerencia, votos, estado, decisión del staff y adjuntos/enlaces visibles en Discord | MongoDB suggestions / JSON | Media |
+| Sesiones de Modmail | ID sesión, Guild ID, User ID, Channel ID, timestamps | MongoDB modmails / JSON | Media |
+| Lista negra global | Bloquear usuarios/servidores que violaron los ToS | MongoDB blacklist / SQLite | Alta |
+| Config Centro de Creadores | Cuentas, canales, plantillas, último contenido | MongoDB serverconfigs | Media |
+| Contador de besos | Número de intercambios `/kiss` entre usuarios | MongoDB kisses / JSON | Baja |
+| Recordatorios | User ID, mensaje, canal destino, fecha/hora | MongoDB reminders / JSON | Baja |
+| Lista de servidores beta | Guild IDs con acceso a funciones experimentales | MongoDB betaguilds / JSON | Baja |
+| Matrimonios entre usuarios | Pares de User IDs que han ejecutado `/marry` | JSON marriages.json | Baja |
+| Contador de abrazos | Abrazos recibidos por usuario | JSON hugs_data.json | Baja |
+| Votos WYR diarios | Voto diario de cada usuario en `/wyr` (reset diario) | JSON wyrDaily.json (temporal) | Baja |
+| Datos de tickets y soporte | Motivos de apertura, transcripciones, reportes, sugerencias al desarrollador y contexto técnico enviado voluntariamente | Discord, MongoDB y/o JSON según la función | Media |
+
+<Callout variant="success">
+  **Principio de minimización:** ZynxFox intenta limitar el tratamiento a los datos necesarios para cada función. Cuando una herramienta permite enviar texto libre, capturas, motivos, transcripciones o enlaces, ese contenido se trata únicamente para prestar la función solicitada, moderar el servicio o atender soporte.
+</Callout>
+
+---
+
+## Artículo 03 — Datos que NO Recopilamos
+
+ZynxFox Bot no recopila ni almacena en ninguna circunstancia:
+
+- Contraseñas o credenciales de usuarios.
+- Correos electrónicos o números de teléfono.
+- Nombres reales, apellidos o documentos de identidad.
+- Direcciones IP de usuarios finales.
+- Datos de tarjetas de crédito o información bancaria.
+- Datos de geolocalización física de usuarios.
+- Historial de navegación web.
+- Conversaciones privadas entre usuarios ajenas a los sistemas propios del bot.
+- Datos biométricos de ningún tipo.
+- Credenciales privadas de plataformas externas pertenecientes a usuarios o administradores del servidor.
+
+Aunque el bot procesa mensajes en tiempo real para funciones como niveles, Antilink, Antispam y AFK, el contenido ordinario de chat no se persiste de forma general. Sin embargo, determinadas funciones sí pueden tratar o conservar contenido compartido voluntariamente por el usuario o por el staff, por ejemplo en tickets, sugerencias, recordatorios, motivos de sanción, sorteos, reportes al soporte o transcripciones generadas por el propio sistema.
+
+---
+
+## Artículo 04 — Finalidad del Tratamiento de Datos
+
+- **Prestación del servicio:** Proporcionar y personalizar todas las funcionalidades del bot. Mantener configuraciones activas. Ejecutar sistemas automáticos (antilink, antispam, asignación de roles por nivel, recordatorios, sorteos, Centro de Creadores).
+- **Seguridad e integridad:** Gestionar la lista negra global y detectar y prevenir el abuso del servicio.
+- **Mejora del servicio:** Estadísticas internas agregadas y no identificables sobre uso de comandos.
+- **Soporte y revisión manual:** Atender reportes, tickets, sugerencias, apelaciones, incidencias técnicas y consultas remitidas voluntariamente al equipo de ZynxFox.
+- **Gestión de suscripciones premium:** Cuando estén disponibles, verificar el estado de suscripción para desbloquear las funcionalidades correspondientes.
+
+Los datos **nunca** se utilizan para publicidad personalizada, venta a terceros ni perfilado comercial de usuarios.
+
+---
+
+## Artículo 05 — Base Legal del Tratamiento
+
+**Prestación del servicio:** El tratamiento de IDs, configuraciones y datos funcionales es necesario para que ZynxFox pueda operar y prestar correctamente sus funcionalidades dentro de Discord.
+
+**Seguridad e integridad del servicio:** El mantenimiento de la blacklist y los sistemas de detección de abuso se realizan para proteger la integridad del servicio, prevenir usos indebidos y reducir riesgos para otros usuarios y servidores.
+
+**Relación con servicios o funciones de pago:** Cuando estén disponibles suscripciones, ventajas premium o servicios similares, el tratamiento necesario para verificar y mantener ese acceso se realizará conforme a la relación aplicable con el usuario o servidor correspondiente.
+
+**Activación voluntaria de funciones:** Al activar módulos específicos o enviar información a través de tickets, reportes, sugerencias o formularios similares, el administrador o usuario autoriza el tratamiento necesario para prestar esa función y atender la solicitud remitida.
+
+---
+
+## Artículo 06 — Almacenamiento y Arquitectura de Datos
+
+**MongoDB Atlas (Sistema Primario):** Base de datos principal en la nube (MongoDB, Inc.). 11 colecciones: serverconfigs, levelprogress, blacklist, sanctions, warns, giveaways, suggestions, modmails, kisses, reminders, betaguilds. Conexión TLS/SSL. Entornos de producción (`zynxfox`) y canary (`zynxfox-dev`) completamente separados.
+
+**SQLite Local (Fallback Primario):** `data/config.db` con tablas `ServerConfig` y `LevelsProgress`. Se activa automáticamente cuando MongoDB no está disponible. Base de datos separada `data/blacklist.db` para la lista negra global.
+
+**Archivos JSON Locales (Fallback Secundario):** Para módulos con fallback o almacenamiento auxiliar en JSON: `kisses_data.json`, `sanctions_{guildId}.json`, `warns_{guildId}.json`, `modmailSessions.json`, `giveaways/{id}.json`, `suggestions/{guildId}.json`, `recordatorios/*.json`, `betaGuilds.json`, `marriages.json`, `hugs_data.json`, `wyrDaily.json`.
+
+**Backups automáticos:** El sistema realiza copias automáticas de determinados archivos locales cada 6 horas con rotación de 20 archivos en `data/backups/`. Actualmente este proceso cubre archivos locales concretos del servicio y no constituye una garantía de respaldo completo e inmediato para todos los datos auxiliares o de fallback.
+
+**Datos en Memoria (Temporales):** Estado AFK, votos en memoria, conexiones TikTok activas, sesiones TTS y cooldowns de comandos. Se pierden al reiniciarse el bot.
+
+---
+
+## Artículo 07 — Retención y Eliminación de Datos
+
+- **Configuración de servidor:** Mantenida mientras el bot está presente. Los administradores pueden solicitar eliminación inmediata al equipo de soporte.
+- **Datos de actividad por usuario:** Asociados al servidor donde se generaron. Se pueden solicitar al equipo de soporte.
+- **Sorteos finalizados:** Mantenidos un tiempo razonable para auditoría, luego pueden eliminarse.
+- **Sesiones de Modmail:** Se cierran automáticamente tras el periodo de inactividad configurado (1–168 horas). El contenido reenviado dentro de Discord puede seguir disponible en los canales o mensajes donde fue publicado, salvo eliminación manual.
+- **Tickets, reportes y soporte:** Pueden mantenerse mientras sea necesario para atender la incidencia, conservar historial operativo o revisar abusos. Las transcripciones o mensajes publicados dentro de Discord pueden requerir eliminación manual adicional.
+- **Recordatorios:** Eliminados automáticamente una vez entregados o tras un periodo razonable si no pudieron entregarse.
+- **Votos WYR:** Eliminados automáticamente en el reset diario.
+- **Lista negra global:** Mantenida indefinidamente mientras el bloqueo esté activo. Se puede solicitar revisión al soporte.
+
+<Callout variant="warning">
+  **Eliminación manual:** Para solicitar la eliminación completa e inmediata de todos los datos asociados a tu servidor o usuario, contacta al equipo de soporte en el servidor oficial de ZynxFox en Discord.
+</Callout>
+
+---
+
+## Artículo 08 — Servicios de Terceros
+
+ZynxFox Bot interactúa con los siguientes servicios de terceros para su funcionamiento. En ningún caso compartimos datos de usuarios con terceros con fines comerciales o publicitarios.
+
+| Servicio | Uso | Datos transmitidos |
+|---|---|---|
+| Discord API | Funcionamiento base del bot. Obligatorio. | IDs, eventos e interacciones de Discord |
+| MongoDB Atlas (MongoDB, Inc.) | Almacenamiento principal de todos los datos del bot. | Config del servidor y datos de actividad |
+| YouTube Data API v3 (Google LLC) | Detectar vídeos y directos en el Centro de Creadores. Opcional. | Handle o identificador público del canal configurado |
+| Twitch Helix API (Twitch Interactive) | Detectar directos en el Centro de Creadores. Opcional. | Handle o identificador público del canal configurado |
+| TikTok Live Connector | Detectar actividad del proveedor TikTok dentro del Centro de Creadores (Beta). Opcional. | Handle público del creador configurado |
+| Google Translate / Google TTS | Generación de audio para funciones TTS. Opcional. | Texto enviado por el usuario para sintetizar audio |
+| FFmpeg (ffmpeg-static) | Procesamiento local de audio TTS. Procesamiento local, sin red. | Ninguno |
+
+<Callout variant="success">
+  **Sin venta de datos:** ZynxFox Bot no vende, alquila ni comercializa datos de usuarios con ningún tercero bajo ninguna circunstancia.
+</Callout>
+
+---
+
+## Artículo 09 — Transferencias Internacionales de Datos
+
+Los datos en MongoDB Atlas pueden encontrarse en servidores fuera del EEE según la región configurada. MongoDB, Inc. cuenta con Cláusulas Contractuales Tipo (CCT) aprobadas por la Comisión Europea. Las consultas a las APIs de YouTube (Google), Twitch, TikTok y a los servicios usados para TTS pueden implicar transferencia de datos a servidores fuera del EEE bajo sus propios mecanismos de transferencia internacional.
+
+---
+
+## Artículo 10 — Tus Derechos como Interesado
+
+Dependiendo de tu jurisdicción, puedes ejercer los siguientes derechos contactando al equipo de soporte:
+
+| Derecho | Descripción |
+|---|---|
+| Acceso | Solicitar qué datos almacenamos asociados a tu User ID. |
+| Rectificación | Solicitar corrección de datos inexactos o incompletos. |
+| Supresión (Derecho al olvido) | Solicitar la eliminación de todos los datos asociados a tu User ID. |
+| Limitación | Solicitar la limitación del tratamiento cuando resulte aplicable según la normativa correspondiente. |
+| Portabilidad | Solicitar copia de tus datos en formato estructurado (JSON). |
+| Oposición | Oponerte al tratamiento de tus datos basado en interés legítimo. |
+| Revisión de decisiones automatizadas | Solicitar revisión humana de acciones automáticas del sistema de advertencias. |
+| Reclamación ante autoridad o vía competente | Presentar una reclamación ante la autoridad, institución o vía legal competente de tu jurisdicción cuando consideres que tu información ha sido tratada de forma indebida. |
+| Derechos CCPA (California) | Conocer datos recopilados, solicitar eliminación, optar por no venta (nota: ZynxFox no vende datos). |
+
+<Callout variant="info">
+  **Plazo de respuesta:** Intentamos responder a todas las solicitudes en el plazo de 30 días naturales desde la recepción.
+</Callout>
+
+---
+
+## Artículo 11 — Medidas de Seguridad
+
+Aplicamos medidas técnicas y organizativas razonables para proteger los datos almacenados:
+
+- **Cifrado en tránsito:** Toda comunicación con MongoDB Atlas y las APIs externas usa TLS/SSL / HTTPS.
+- **Cifrado en reposo:** MongoDB Atlas cifra los datos en reposo según sus estándares de seguridad.
+- **Acceso con privilegios mínimos:** El bot usa una cuenta MongoDB con permisos limitados al esquema `zynxfox`.
+- **Variables de entorno seguras:** `BOT_TOKEN`, `MONGODB_URI` y API Keys se gestionan mediante archivos `.env`, nunca incluidos en el código fuente.
+- **Separación de entornos:** Producción (`zynxfox`) y canary (`zynxfox-dev`) usan bases de datos completamente separadas.
+- **Backups automáticos parciales:** Cada 6 horas con rotación de 20 archivos para determinados archivos locales del servicio.
+- **Health-check y monitor:** El bot verifica la conexión a MongoDB al arranque y durante el runtime, con fallback automático a SQLite.
+
+<Callout variant="warning">
+  **Ningún sistema es 100% seguro:** No podemos garantizar seguridad absoluta. En caso de brecha de seguridad, notificaremos a los administradores afectados a la mayor brevedad a través del servidor oficial de soporte.
+</Callout>
+
+---
+
+## Artículo 12 — Menores de Edad
+
+ZynxFox Bot no está diseñado para usuarios menores de 13 años, conforme a los Términos de Servicio de Discord. No recopilamos intencionadamente datos de menores. Si somos informados de haber almacenado datos de un menor sin consentimiento apropiado, los eliminaremos a la mayor brevedad.
+
+---
+
+## Artículo 13 — Cambios en esta Política
+
+Podemos actualizar esta Política periódicamente. Los cambios materialmente significativos se comunicarán en el servidor oficial de soporte con antelación. El uso continuado del bot tras la publicación de cambios implica su aceptación.
+
+---
+
+## Artículo 14 — Contacto y Ejercicio de Derechos
+
+Para ejercer derechos, reportar incidencias de privacidad o cualquier consulta sobre esta política:
+
+- **Servidor oficial de soporte de ZynxFox en Discord:** canal principal para todas las consultas. Indicar tipo de derecho a ejercer, tu User ID de Discord y el servidor afectado.
+- **Sistema de Tickets:** en el servidor de soporte para solicitudes formales que requieran documentación.
+- **Autoridad o vía competente:** Si lo consideras necesario, también puedes acudir a la autoridad, institución o vía legal competente conforme a la normativa aplicable en tu jurisdicción.

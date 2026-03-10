@@ -1,64 +1,122 @@
+import Link from "next/link";
+import { ArrowRight, BookOpenText, LifeBuoy, Settings2, Sparkles, Wrench } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { CommandBadge } from "@/components/ui/command-badge";
+import { SectionHeader } from "@/components/ui/section-header";
+import { wikiSections } from "@/lib/wiki-sections";
+
+const highlights = [
+  {
+    icon: Settings2,
+    title: "Primeros pasos",
+    description: "Invitación, permisos básicos y puesta en marcha desde /config para dejar el bot útil desde el minuto uno.",
+    href: "/wiki/configuracion-inicial",
+  },
+  {
+    icon: Wrench,
+    title: "Módulos y sistemas",
+    description: "Tickets, moderación, niveles, Centro de Creadores, sorteos, TTS y otras funciones organizadas por guías.",
+    href: "/wiki/modulos",
+  },
+  {
+    icon: LifeBuoy,
+    title: "Ayuda y resolución",
+    description: "Preguntas frecuentes, errores comunes y ruta directa al soporte oficial si algo no sale como esperabas.",
+    href: "/wiki/solucion-de-problemas",
+  },
+];
+
 export const metadata = {
   title: "Wiki",
-  description: "Guías y ayuda de ZynxFox"
+  description: "Centro de ayuda y documentación pública de ZynxFox.",
 };
-
-function Card({ title, desc, href }: { title: string; desc: string; href: string }) {
-  return (
-    <a
-      href={href}
-      className="group block rounded-xl border border-white/10 bg-white/5 p-4 transition hover:border-white/20 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/50"
-    >
-      <h3 className="text-base font-semibold text-white">{title}</h3>
-      <p className="mt-1 text-sm text-zinc-300">{desc}</p>
-      <span className="mt-3 inline-block text-sm text-brand-300 opacity-0 transition group-hover:opacity-100">
-        Abrir →
-      </span>
-    </a>
-  );
-}
 
 export default function WikiPage() {
   return (
-    <div className="container py-10 sm:py-12">
-      <header className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight text-white">Centro de ayuda</h1>
-        <p className="mt-2 max-w-2xl text-zinc-300">
-          Documentación práctica para usar ZynxFox. Encuentra guías rápidas, módulos y
-          soluciones a problemas comunes.
-        </p>
-      </header>
+    <div className="space-y-12">
+      <SectionHeader
+        eyebrow="Centro de ayuda"
+        title="Documentación pública de ZynxFox"
+        subtitle="Guías reales para instalar el bot, activar módulos, configurar sistemas desde Discord y resolver problemas comunes."
+      />
 
-      {/* Guía rápida */}
-      <section className="mb-10">
-        <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-zinc-400">Guía rápida</h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <Card title="Invitar el bot" desc="Cómo añadir ZynxFox a tu servidor." href="/wiki/instalacion" />
-          <Card title="Configuración inicial" desc="Pasos recomendados tras invitarlo." href="/wiki/configuracion-inicial" />
-          <Card title="Lista de comandos" desc="Consulta y busca comandos por categoría." href="/comandos" />
-        </div>
-      </section>
+      <div className="grid gap-4 lg:grid-cols-3">
+        {highlights.map((item) => (
+          <Card key={item.title} className="p-6">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-border-subtle bg-surface-elevated text-brand-purple">
+              <item.icon aria-hidden size={20} />
+            </div>
+            <h2 className="mt-5 font-heading text-h3 font-bold text-text-primary">{item.title}</h2>
+            <p className="mt-3 text-body text-text-secondary">{item.description}</p>
+            <Link
+              href={item.href as any}
+              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-brand-purple transition-colors hover:text-brand-pink"
+            >
+              Abrir guía <ArrowRight aria-hidden size={14} />
+            </Link>
+          </Card>
+        ))}
+      </div>
 
-      {/* Módulos */}
-      <section className="mb-10">
-        <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-zinc-400">Módulos</h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <Card title="Tickets" desc="Sistema de soporte con canales privados." href="/wiki/modulos/tickets" />
-          <Card title="Moderación" desc="Expulsiones, baneos, advertencias y más." href="/wiki/modulos/moderacion" />
-          <Card title="Niveles" desc="Experiencia por mensajes y roles por nivel." href="/wiki/modulos/niveles" />
-          <Card title="Recordatorios y sorteos" desc="Programar avisos y gestionar giveaways." href="/wiki/modulos/recordatorios-giveaways" />
+      <Card className="p-6 md:p-8">
+        <div className="flex items-start gap-4">
+          <span className="mt-1 flex h-12 w-12 items-center justify-center rounded-xl border border-border-subtle bg-surface-elevated text-brand-pink">
+            <Sparkles aria-hidden size={20} />
+          </span>
+          <div className="space-y-4">
+            <h2 className="font-heading text-h3 font-bold text-text-primary">
+              Qué vas a encontrar aquí
+            </h2>
+            <p className="text-body text-text-secondary">
+              La wiki está pensada para acompañar el uso real del bot, con guías claras para configurar módulos, revisar comandos y resolver dudas frecuentes.
+            </p>
+            <div className="flex flex-wrap items-center gap-3 text-sm text-text-secondary">
+              <span>Punto de partida:</span>
+              <CommandBadge command="/config" />
+              <span>para módulos, permisos y sistemas automáticos.</span>
+            </div>
+          </div>
         </div>
-      </section>
+      </Card>
 
-      {/* Soporte */}
-      <section>
-        <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-zinc-400">Soporte</h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <Card title="Preguntas frecuentes" desc="Respuestas a dudas comunes." href="/wiki/preguntas-frecuentes" />
-          <Card title="Solución de problemas" desc="Errores habituales y cómo resolverlos." href="/wiki/solucion-de-problemas" />
-          <Card title="Privacidad y seguridad" desc="Cómo manejamos datos y permisos." href="/wiki/privacidad-y-seguridad" />
+      <div className="grid gap-4 lg:grid-cols-3">
+        {wikiSections.map((section) => (
+          <Card key={section.title} className="p-5">
+            <p className="text-meta font-medium uppercase tracking-[0.2em] text-text-secondary">
+              {section.title}
+            </p>
+            <ul className="mt-5 space-y-3">
+              {section.items.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href as any}
+                    className="flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm text-text-secondary transition-colors duration-fast hover:bg-surface-elevated hover:text-text-primary"
+                  >
+                    <span>{item.label}</span>
+                    <ArrowRight aria-hidden size={14} />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Card>
+        ))}
+      </div>
+
+      <Card className="p-6">
+        <div className="flex items-start gap-4">
+          <span className="mt-1 flex h-12 w-12 items-center justify-center rounded-xl border border-border-subtle bg-surface-elevated text-brand-purple">
+            <BookOpenText aria-hidden size={20} />
+          </span>
+          <div className="space-y-3">
+            <h2 className="font-heading text-h3 font-bold text-text-primary">
+              Más guías y recursos visuales
+            </h2>
+            <p className="text-body text-text-secondary">
+              Esta sección seguirá sumando capturas, ejemplos y tutoriales para que usar cada módulo sea todavía más simple.
+            </p>
+          </div>
         </div>
-      </section>
+      </Card>
     </div>
   );
 }

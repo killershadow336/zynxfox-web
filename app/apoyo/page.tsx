@@ -1,6 +1,9 @@
+import { Button } from "@/components/ui/button";
+import { SectionHeader } from "@/components/ui/section-header";
+
 export const metadata = {
   title: "Apoyo",
-  description: "Apoya el desarrollo de ZynxFox."
+  description: "Formas de apoyar a ZynxFox.",
 };
 
 export default function ApoyoPage() {
@@ -9,16 +12,21 @@ export default function ApoyoPage() {
   const kofiUrl = process.env.NEXT_PUBLIC_KOFI_URL || "#";
 
   return (
-    <div className="container py-12">
-      <h1 className="text-3xl font-bold text-white">Apoya el proyecto</h1>
-      <p className="mt-2 max-w-2xl text-zinc-300">
-        Tu apoyo mantiene el bot en línea, las nuevas funciones y la infraestructura.
-      </p>
+    <div className="container py-12 md:py-16">
+      <SectionHeader
+        eyebrow="Apoyo"
+        title="Apoya a ZynxFox"
+        subtitle="Si quieres ayudar al proyecto, aquí encontrarás las opciones disponibles para hacerlo."
+      />
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-2">
-        <a className="btn-primary text-center" href={donateUrl}>Donación directa</a>
-        <a className="btn-ghost text-center" href={patreonUrl}>Patreon</a>
-        <a className="btn-ghost text-center" href={kofiUrl}>Ko-fi</a>
+      <div className="mt-8 flex flex-wrap gap-3">
+        <Button href={donateUrl}>Donación directa</Button>
+        <Button href={patreonUrl} variant="secondary">
+          Patreon
+        </Button>
+        <Button href={kofiUrl} variant="secondary">
+          Ko-fi
+        </Button>
       </div>
     </div>
   );

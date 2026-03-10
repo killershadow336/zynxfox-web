@@ -1,6 +1,5 @@
-import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
 
-export default function TikTokLiveWikiPage() {
-  notFound();
-  return null;
+export default function TiktokLiveWikiPage() {
+  redirect("/wiki/modulos/centro-de-creadores");
 }

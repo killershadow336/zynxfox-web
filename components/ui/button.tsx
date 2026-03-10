@@ -1,43 +1,88 @@
 "use client";
-import { forwardRef } from "react";
-import { motion } from "framer-motion";
+
+import type React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import Link from "next/link";
 import { cn } from "@/utils/cn";
 
-type ButtonProps = {
-	variant?: "primary" | "ghost";
-	className?: string;
-	children: React.ReactNode;
-	href?: string;
-	onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
-	disabled?: boolean;
-	target?: string;
-	rel?: string;
-	shine?: boolean; // permite desactivar el brillo por botón
-} & React.ComponentPropsWithoutRef<"button">;
-
-export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
-	({ variant = "primary", className, children, href, disabled, target, rel, shine = true, ...rest }, ref) => {
-		const base = variant === "primary" ? `btn-primary ${shine ? "btn-shine" : ""}` : "btn-ghost hover:border-white/20";
-
-		const MotionEl: any = href ? motion.a : motion.button;
-
-		return (
-			<MotionEl
-				ref={ref as any}
-				href={href}
-				target={target}
-				rel={rel}
-				className={cn(base, "will-change-transform", className)}
-			whileHover={{ y: -0.5, scale: 1.01 }}
-				whileTap={{ scale: 0.98 }}
-				aria-disabled={disabled}
-				{...rest}
-			>
-				{children}
-			</MotionEl>
-		);
-	}
+const buttonVariants = cva(
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-button font-medium transition-all duration-fast ease-out-quint focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple/40 focus-visible:ring-offset-0 disabled:pointer-events-none disabled:opacity-60",
+  {
+    variants: {
+      variant: {
+        primary:
+          "button-primary-enhanced bg-brand-gradient text-white hover:scale-[1.03] active:scale-[0.985]",
+        secondary:
+          "border border-border-subtle bg-transparent text-text-primary hover:border-brand-purple hover:bg-surface-card",
+        ghost:
+          "bg-transparent text-text-secondary hover:text-text-primary",
+      },
+      size: {
+        default: "px-6 py-3 text-sm",
+        compact: "px-4 py-2 text-sm",
+      },
+      block: {
+        true: "w-full",
+        false: "",
+      },
+    },
+    defaultVariants: {
+      variant: "primary",
+      size: "default",
+      block: false,
+    },
+  }
 );
 
-Button.displayName = "Button";
+type SharedProps = VariantProps<typeof buttonVariants> & {
+  className?: string;
+  children: React.ReactNode;
+  href?: string;
+  block?: boolean;
+};
 
+type ButtonAsButton = SharedProps &
+  Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "className" | "children">;
+type ButtonAsAnchor = SharedProps &
+  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "className" | "children">;
+
+export function Button({
+  className,
+  variant,
+  size,
+  block,
+  href,
+  children,
+  ...props
+}: ButtonAsButton | ButtonAsAnchor) {
+  const classes = cn(buttonVariants({ variant, size, block }), className);
+  const content =
+    variant === "primary" ? <span className="button-primary-enhanced__label">{children}</span> : children;
+
+  if (href) {
+    const anchorProps = props as React.AnchorHTMLAttributes<HTMLAnchorElement>;
+    const isExternal = /^https?:\/\//.test(href);
+
+    if (isExternal) {
+      return (
+        <a className={classes} href={href} {...anchorProps}>
+          {content}
+        </a>
+      );
+    }
+
+    return (
+      <Link className={classes} href={href as any} {...anchorProps}>
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <button className={classes} {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}>
+      {content}
+    </button>
+  );
+}
+
+export { buttonVariants };

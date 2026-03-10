@@ -1,14 +1,16 @@
-export default function ComandosWikiPage() {
+import Link from "next/link";
+
+export default function WikiComandosPage() {
   return (
-    <article className="prose prose-invert max-w-none">
-      <h1>Lista de comandos</h1>
-      <p>El bot incluye comandos de barra (slash) y algunos por prefijo. Usa <code>/help</code> o revisa el panel en Discord para ver los disponibles.</p>
-      <ul>
-        <li>Administración: <code>/config</code>.</li>
-        <li>Moderación: <code>/ban</code>, <code>/kick</code>, <code>/timeout</code>, <code>/warn</code>.</li>
-        <li>Utilidad: recordatorios, sorteos, info del bot.</li>
-        <li>Diversión: rps, dados, etc.</li>
-      </ul>
+    <article className="doc-content">
+      <h1>Comandos</h1>
+      <p>
+        El catálogo público de comandos está disponible en su propia página para que puedas buscar por nombre, categoría y tipo de uso.
+      </p>
+
+      <p>
+        Abre el <Link href={"/comandos" as any}>catálogo de comandos</Link> para ver el listado completo publicado junto a la web.
+      </p>
     </article>
   );
 }

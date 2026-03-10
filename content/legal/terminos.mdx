@@ -1,0 +1,254 @@
+---
+title: "Términos de Servicio"
+description: "Condiciones legales de uso de ZynxFox Bot en Discord."
+slug: "terminos"
+lastUpdated: "2026-04-09"
+version: "1.0"
+---
+
+import { Callout } from '@/components/ui/callout'
+
+# Términos de Servicio
+
+<div className="text-text-secondary text-sm mb-8">
+  Versión 1.0 · 9 de abril de 2026
+</div>
+
+---
+
+## Artículo 01 — Aceptación de los Términos
+
+Al invitar a ZynxFox Bot a tu servidor de Discord, al utilizarlo mediante comandos slash (`/`), comandos con prefijo (`z!`), o al interactuar con cualquiera de sus sistemas —incluyendo el panel de configuración `/config`, el sistema de tickets, sorteos, niveles, TTS, Modmail, moderación automática, Centro de Creadores u otras funcionalidades—, confirmas que has leído, comprendido y aceptado íntegramente estos Términos de Servicio.
+
+Si no estás de acuerdo con alguna de las condiciones aquí descritas, debes dejar de usar el bot inmediatamente y expulsarlo de tu servidor. El uso continuado del bot tras cualquier actualización de estos términos implica la aceptación de los cambios introducidos.
+
+Estos términos aplican a toda persona que interactúe con el bot: administradores de servidor, moderadores, miembros ordinarios e invitados. La responsabilidad del correcto uso recae principalmente en los administradores del servidor.
+
+<Callout variant="info">
+  **Relación con Discord:** Estos términos complementan los Términos de Servicio de Discord y sus Pautas de la Comunidad, nunca los reemplazan.
+</Callout>
+
+---
+
+## Artículo 02 — Descripción del Servicio
+
+ZynxFox Bot es un bot de Discord de propósito general desarrollado de forma independiente. Opera sobre Node.js con Discord.js v14 y almacena configuraciones y datos funcionales en MongoDB Atlas, con mecanismos locales de continuidad en SQLite y archivos JSON. Dispone de 71 comandos slash, 9 comandos con prefijo (exclusivos para el propietario), 13 módulos de configuración y 11 colecciones en base de datos.
+
+### Administración y Configuración
+
+Panel de configuración interactivo (`/config`) con 13 módulos y 59 tipos de panel modular: Logs de eventos, Sugerencias, Tickets, Centro de Creadores (YouTube/Twitch/TikTok), TTS, Canales de Voz Temporales, Niveles/XP, Antilink, Antispam, Advertencias, Ausencias y Modmail.
+
+### Moderación
+
+Advertencias, sanciones (`/ban`, `/tempban`, `/kick`, `/mute`, `/timeout`), gestión de mensajes (`/purge`, `/nuke`), registro de moderación. Sistemas automáticos de Antilink y Antispam configurables. Sistema de Modmail con relay de DMs al staff.
+
+### Entretenimiento y Social
+
+Juegos interactivos: `/memory`, `/hangman`, `/rps`, `/snake`, `/duel`. Comandos sociales con botones de respuesta y contadores persistentes: hug, kiss, pat, cuddle, slap, highfive, ship. Pregunta del día `/wyr`, confesiones anónimas `/confess`, sistema de matrimonios `/marry` y `/divorce`.
+
+### Utilidad e Información
+
+TTS como archivo MP3 (`/tts`), avatares y banners con descarga, generador de timestamps, estado AFK, encuestas, sorteos, creación de embeds, información de servidor, usuario, canal, rol y bot.
+
+### Sistema de Voz y TTS
+
+Text-to-Speech en canales de voz mediante `/join`, `/leave` y `/tts`. Soporte para múltiples idiomas, velocidad de lectura y tonos.
+
+### Sistema de Niveles, Sorteos, Sugerencias y Centro de Creadores
+
+XP automático por mensajes con cooldown configurable. Leaderboard y tarjeta de rango. Sorteos con requisitos de participación. Sugerencias con votación y gestión de staff. Centro de Creadores con notificaciones de YouTube, Twitch y TikTok (beta).
+
+---
+
+## Artículo 03 — Uso Permitido y Prohibiciones
+
+Al usar ZynxFox Bot te comprometes a hacerlo para fines lícitos y en cumplimiento de la legislación aplicable y las normas de Discord. Se prohíbe expresamente:
+
+### Conductas Prohibidas Generales
+
+- Usar el bot para acosar, amenazar, difamar, intimidar o causar daño a otros usuarios.
+- Distribuir contenido ilegal, pornografía infantil, discurso de odio o contenido violento extremo.
+- Distribuir spam, malware, phishing o invitaciones masivas no solicitadas.
+- Suplantar identidades de otras personas o entidades.
+- Usar el bot en servidores cuyo propósito sea actividades ilegales o que violen los Términos de Discord.
+- Usar el sistema TTS para reproducir contenido ofensivo, ilegal o perturbador en canales de voz.
+- Usar comandos sociales de forma sistemática para hostigar o acosar a otros usuarios.
+- Crear sorteos con premios inexistentes, engañosos o fraudulentos.
+- Configurar el Centro de Creadores para notificar contenido sin autorización del creador.
+
+### Prohibiciones Técnicas
+
+- Ejecutar múltiples instancias del bot con el mismo token simultáneamente.
+- Manipular los sistemas de XP, niveles, sorteos o advertencias mediante herramientas automatizadas.
+- Intentar explotar, hackear o interrumpir el bot o su infraestructura.
+- Intentar realizar ingeniería inversa del código del bot sin autorización escrita.
+- Intentar acceder o extraer datos de otros servidores a través del bot.
+
+<Callout variant="danger">
+  **Consecuencias:** El incumplimiento puede resultar en bloqueo permanente sin previo aviso. Las conductas ilegales graves pueden reportarse a las autoridades competentes.
+</Callout>
+
+---
+
+## Artículo 04 — Condiciones de Funciones Específicas
+
+| Función | Condiciones específicas | Estado |
+|---|---|---|
+| Sistema de Tickets | El sistema puede generar transcripciones y registros del contenido compartido dentro del ticket, incluidos adjuntos o enlaces visibles en Discord. No debe usarse para datos sensibles. | Estable |
+| Modmail | El bot actúa como relay entre el usuario y el staff. Aunque la sesión persiste principalmente como metadatos, el contenido reenviado puede quedar visible y almacenado dentro de Discord en canales internos y mensajes relacionados. | Estable |
+| Niveles / XP | XP automático por mensajes. Los datos son por servidor y pueden eliminarse si el bot es expulsado. | Estable |
+| Sorteos | El admin es responsable de cumplir los premios. Prohibido organizar sorteos fraudulentos. | Estable |
+| TTS | El contenido generado es responsabilidad del usuario. El audio se elimina tras enviarse como MP3. | Estable |
+| CC — YouTube | Usa la integración general del servicio para comprobar publicaciones y directos. Aplican los términos de YouTube y Google. | Estable |
+| CC — Twitch | Usa la integración general del servicio para comprobar emisiones y estados en directo. Aplican los términos de Twitch. | Estable |
+| CC — TikTok | Integración disponible dentro del Centro de Creadores en estado **beta** y bajo modalidad best-effort. Los eventos pueden retrasarse, duplicarse o no llegar. | Beta |
+| Antilink / Antispam | Herramientas de automoderación. Los falsos positivos son posibles. | Estable |
+| Comandos de Moderación | Ban, kick, mute, purge y nuke son exclusivos para admins. Su uso abusivo es responsabilidad del servidor. | Estable |
+| Sistema de Advertencias | Registradas por servidor. Se pueden configurar acciones automáticas por acumulación. | Estable |
+| Canales de Voz Temporales | Los canales se eliminan al quedar vacíos. Requiere permisos de gestión de canales. | Estable |
+| Comandos Sociales | Para uso recreativo. Los contadores son persistentes por servidor. | Estable |
+| Recordatorios | No se garantiza entrega si el bot está offline en el momento programado. | Estable |
+
+---
+
+## Artículo 05 — Responsabilidades del Administrador de Servidor
+
+Los administradores que añadan ZynxFox Bot asumen plena responsabilidad sobre la configuración y uso del bot en su comunidad:
+
+- **Configuración adecuada:** Configurar todos los módulos activos correctamente, incluyendo listas de exclusión de roles y canales para evitar falsos positivos.
+- **Permisos mínimos:** Conceder al bot únicamente los permisos de Discord estrictamente necesarios.
+- **Cumplimiento legal:** Asegurarse de que el uso cumple con la legislación aplicable, especialmente las leyes de protección de datos.
+- **Información a la comunidad:** Informar a los miembros sobre sistemas automáticos activos que les puedan afectar.
+- **Uso responsable del Centro de Creadores:** Configurar únicamente canales y cuentas sobre las que exista autorización suficiente para publicar avisos o hacer seguimiento.
+- **Uso responsable de moderación:** Usar ban, kick, mute, purge y nuke de forma responsable y proporcional.
+- **Centro de Creadores:** Configurar notificaciones solo para creadores con autorización. Respetar los derechos de autor y los términos de las plataformas externas.
+- **Sorteos honrados:** Cumplir todos los premios anunciados en los sorteos creados con el bot.
+
+<Callout variant="danger">
+  **Cláusula de indemnización:** Los administradores aceptan indemnizar y eximir de responsabilidad a los desarrolladores de ZynxFox Bot frente a cualquier reclamación, pérdida, daño o gasto derivado del uso indebido del bot en su servidor o del incumplimiento de estos términos.
+</Callout>
+
+---
+
+## Artículo 06 — Suscripciones Premium y Donaciones
+
+ZynxFox Bot es actualmente un proyecto independiente ofrecido de forma gratuita. Para garantizar la continuidad, desarrollo y mantenimiento a largo plazo, se contemplan las siguientes modalidades de apoyo voluntario.
+
+### Suscripciones Premium
+
+En el futuro, ZynxFox podría ofrecer planes de suscripción de pago —mensual o vitalicio— con el objetivo de ayudar a mantener vivo, rentable y sostenible el proyecto. Si ese modelo llega a aplicarse, podría incluir funciones nuevas, ventajas adicionales o ajustes sobre determinadas funciones actuales. Estas posibilidades se mencionan de forma orientativa y sin constituir un compromiso cerrado:
+
+- Módulos o comandos adicionales reservados para servidores o usuarios con suscripción activa.
+- Mayor número de cuentas configurables en el Centro de Creadores (YouTube, Twitch, TikTok).
+- Funciones avanzadas de moderación automatizada con reglas personalizadas más granulares.
+- Plantillas y personalización avanzada de embeds, mensajes y notificaciones.
+- Acceso prioritario a nuevas funcionalidades antes de su despliegue general.
+- Soporte prioritario con tiempo de respuesta reducido.
+- Mayor espacio de almacenamiento para datos del servidor.
+- Personalización avanzada del sistema de niveles (XP personalizado, tarjetas de rango exclusivas).
+
+<Callout variant="warning">
+  **Nota importante:** Cualquier cambio futuro en el modelo de acceso, funciones incluidas o ventajas de suscripción se comunicará con antelación suficiente a través de los canales oficiales de ZynxFox.
+</Callout>
+
+### Modalidades de Suscripción
+
+| Modalidad posible | Descripción orientativa | Alcance estimado |
+|---|---|---|
+| Plan Mensual | Suscripción renovable mensualmente, si llegara a habilitarse. | Acceso temporal mientras esté activa |
+| Plan Vitalicio | Pago único sin renovación, si llegara a ofrecerse. | Acceso permanente a las ventajas disponibles en ese momento |
+| Plan de Servidor | Modalidad asociada a un servidor concreto. | Beneficios aplicados al servidor vinculado |
+| Plan de Usuario | Modalidad asociada a una cuenta de Discord concreta. | Beneficios aplicados al usuario vinculado |
+
+### Condiciones de las Suscripciones Premium
+
+- Actualmente ZynxFox se ofrece de forma gratuita para todos los usuarios y servidores.
+- Si en el futuro se habilitan modalidades premium, sus precios, alcance, duración, condiciones de renovación y política de reembolsos se anunciarán con suficiente antelación en los canales oficiales de ZynxFox.
+- Cualquier ventaja de pago, cambio sobre funciones actuales o lanzamiento de nuevas funciones premium dependerá de las necesidades reales de mantenimiento, infraestructura y continuidad del proyecto.
+- En caso de activarse un sistema premium, el acceso podría suspenderse o revocarse ante incumplimientos graves de estos Términos de Servicio o abuso del servicio.
+
+### Sistema de Donaciones
+
+ZynxFox podrá habilitar donaciones voluntarias para quienes deseen apoyar el proyecto. Estas aportaciones se destinarían a cubrir costes de infraestructura, mantenimiento, dominio, base de datos, herramientas y tiempo de desarrollo para ayudar a mantener vivo el bot a largo plazo.
+
+- Las donaciones son completamente voluntarias y no otorgan, por sí solas, un derecho contractual a funciones exclusivas, soporte prioritario o ventajas permanentes.
+- Si se habilitan, los canales oficiales para donar se anunciarán en el servidor oficial de soporte de ZynxFox en Discord.
+- Las donaciones podrían recibir agradecimientos públicos, menciones, reconocimientos o destacados dentro de los espacios oficiales del proyecto, siempre a discreción del equipo de ZynxFox y sin que ello constituya una obligación contractual.
+- Salvo que se indique expresamente lo contrario en el momento de habilitar un método concreto, las donaciones se considerarán aportaciones voluntarias no reembolsables.
+
+<Callout variant="success">
+  **Gracias por tu apoyo:** Si en el futuro decides apoyar a ZynxFox con una donación o una suscripción, esa ayuda contribuirá directamente a mantener el proyecto activo, cubrir costes técnicos y seguir desarrollando nuevas funciones.
+</Callout>
+
+---
+
+## Artículo 07 — Funciones Beta y Acceso Especial
+
+**Proveedor TikTok en Centro de Creadores (Beta):** Opera en modo best-effort. La detección de directos o actividad no está garantizada. Los eventos pueden llegar con retraso, duplicarse o no llegar. Puede interrumpirse o ajustarse en cualquier momento sin previo aviso.
+
+**Acceso Beta por Lista de Servidores:** Ciertas funciones experimentales están restringidas a servidores en la lista de acceso beta, gestionada discrecionalmente por el desarrollador. El acceso puede concederse o revocarse en cualquier momento.
+
+**Instancia Canary:** Existe una instancia canary del bot para pruebas, con datos completamente independientes de la instancia oficial. Puede ser inestable y sufrir interrupciones frecuentes.
+
+<Callout variant="warning">
+  Las funcionalidades beta se proporcionan sin garantía de disponibilidad ni continuidad. Su activación es completamente voluntaria y corre por cuenta del administrador.
+</Callout>
+
+---
+
+## Artículo 08 — Propiedad Intelectual
+
+ZynxFox Bot, su código fuente íntegramente en TypeScript, su arquitectura modular, sus 71 comandos slash, sus 13 módulos de configuración con 59 tipos de panel, sus utilidades, tipos, esquemas de base de datos y sistema de emojis de aplicación son propiedad intelectual de sus desarrolladores.
+
+Queda expresamente prohibido sin autorización escrita: reproducir, distribuir o sublicenciar el código del bot; crear bots derivados; usar el nombre «ZynxFox» o su logotipo con fines comerciales; presentar el bot o sus componentes como de propia autoría.
+
+---
+
+## Artículo 09 — Privacidad y Datos
+
+El uso de ZynxFox Bot implica el procesamiento de datos conforme a la [Política de Privacidad](/privacidad), que forma parte integral de estos Términos. El bot procesa principalmente IDs de Discord, configuraciones de servidor y datos necesarios para sus funciones. En determinadas herramientas, como tickets, recordatorios, sugerencias, sorteos, reportes al soporte o flujos de moderación, también puede tratar contenido textual, motivos, enlaces o adjuntos compartidos voluntariamente por los usuarios dentro del propio servicio. No se solicitan ni deben compartirse contraseñas, correos electrónicos ni datos bancarios a través del bot.
+
+---
+
+## Artículo 10 — Disponibilidad del Servicio
+
+ZynxFox Bot se ofrece sin garantía de disponibilidad continua. El servicio puede interrumpirse por mantenimiento, interrupciones de Discord o MongoDB Atlas, fallos técnicos o decisión del equipo de desarrollo. No asumimos responsabilidad por daños o pérdidas derivados de la interrupción del servicio.
+
+---
+
+## Artículo 11 — Terminación del Acceso
+
+**Por parte del usuario:** Puedes dejar de usar el bot expulsándolo de tu servidor. Para solicitar eliminación de datos, contacta al equipo de soporte antes de expulsarlo.
+
+Nos reservamos el derecho de bloquear el acceso sin previo aviso por: incumplimiento de estos términos, violación de las normas de Discord, uso para actividades ilegales o decisión de discontinuar el servicio. La terminación no genera derecho a compensación ni recuperación de datos.
+
+---
+
+## Artículo 12 — Limitación de Responsabilidad
+
+En la máxima medida permitida por la ley, los desarrolladores de ZynxFox Bot no serán responsables de: daños indirectos o punitivos de cualquier naturaleza; pérdida de datos o negocio; daños por uso incorrecto del bot por administradores o usuarios; contenido eliminado por los sistemas de automoderación; interrupciones de servicios externos (Discord, MongoDB Atlas, Twitch, YouTube, TikTok); fallos en entrega de notificaciones o recordatorios; incumplimiento de premios en sorteos; ni cualquier daño derivado del uso de funcionalidades beta.
+
+Mientras ZynxFox siga ofreciéndose de forma gratuita, la responsabilidad máxima se limitará a **cero (0) euros** en la medida permitida por la ley. Si en el futuro existieran planes o servicios de pago, cualquier límite específico de responsabilidad asociado a esos servicios se informará junto con sus condiciones correspondientes.
+
+---
+
+## Artículo 13 — Modificación de los Términos
+
+Nos reservamos el derecho de modificar estos Términos en cualquier momento. Los cambios se comunicarán a través del servidor oficial de soporte de ZynxFox en Discord. El uso continuado del bot implica la aceptación de los nuevos términos.
+
+---
+
+## Artículo 14 — Legislación Aplicable y Resolución de Conflictos
+
+Estos Términos se rigen por la legislación del Estado Plurinacional de Bolivia. Cualquier controversia se someterá en primer lugar a una resolución amistosa a través del servidor oficial de soporte de ZynxFox. Si no se alcanza un acuerdo, la controversia podrá someterse a las autoridades o tribunales competentes de Santa Cruz de la Sierra, Bolivia, sin perjuicio de cualquier norma imperativa que resulte aplicable según la jurisdicción correspondiente.
+
+---
+
+## Artículo 15 — Contacto y Soporte
+
+Para consultas sobre estos Términos, reportar un abuso o cualquier cuestión relacionada con ZynxFox Bot:
+
+- **Servidor oficial de soporte de ZynxFox en Discord:** canal principal y más rápido para recibir respuesta.
+- **Comando `/reportar`:** disponible en cualquier servidor donde esté el bot, para reportar problemas o abusos.
+- **Comando `/sugerir`:** para propuestas de mejora o nuevas funcionalidades.
+- **Sistema de Tickets:** en el servidor de soporte oficial para cuestiones que requieran atención detallada.

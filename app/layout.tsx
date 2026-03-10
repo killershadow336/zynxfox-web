@@ -1,18 +1,27 @@
+import type React from "react";
 import type { Metadata } from "next";
+import "@/styles/tokens.css";
 import "./globals.css";
+import { fontVariables } from "@/lib/fonts";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { FloatingPanelSoon } from "@/components/ui/floating-panel-soon";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
 
 export const metadata: Metadata = {
   title: {
-    default: "ZynxFox — Bot de Discord",
-    template: "%s | ZynxFox"
+    default: "ZynxFox | Discord",
+    template: "%s | ZynxFox",
   },
-  description: "Wiki e información de ZynxFox: comandos, características y cómo apoyar el proyecto.",
-  metadataBase: new URL("https://example.com"),
+  description:
+    "Sitio oficial de ZynxFox con documentación, soporte, novedades y recursos públicos.",
+  metadataBase: new URL(siteUrl),
   icons: {
-    icon: "/favicon.ico"
-  }
+    icon: "/zynxfox.png",
+    shortcut: "/zynxfox.png",
+    apple: "/zynxfox.png",
+  },
 };
 
 export const viewport = {
@@ -23,27 +32,11 @@ export const viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" suppressHydrationWarning>
-      <body className="min-h-dvh antialiased flex flex-col">
-        {/* Fondo global fijo para evitar cortes entre secciones/páginas */}
-        <div
-          aria-hidden
-          className="pointer-events-none fixed inset-0 -z-10"
-          style={{
-            background:
-              [
-                // Radial superior
-                "radial-gradient(150% 100% at 50% -20%, rgba(99,102,241,.26), transparent 72%)",
-                // Radial inferior ampliada
-                "radial-gradient(170% 140% at 50% 130%, rgba(236,72,153,.14), transparent 74%)",
-                // Gradiente vertical sutil para suavizar transición en pantallas altas
-                "linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.00) 18%, rgba(255,255,255,0.00) 82%, rgba(255,255,255,0.02) 100%)"
-              ].join(', ')
-          }}
-        />
+    <html lang="es" className={fontVariables} suppressHydrationWarning>
+      <body className="min-h-dvh bg-bg-base text-text-primary">
         <Navbar />
-        {/* pt-16 compensa la altura del navbar sticky */}
-  <main className="flex-1 pt-16">{children}</main>
+        <main className="min-h-[calc(100dvh-var(--navbar-h))]">{children}</main>
+        <FloatingPanelSoon />
         <Footer />
       </body>
     </html>

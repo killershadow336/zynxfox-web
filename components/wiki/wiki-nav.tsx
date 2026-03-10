@@ -1,68 +1,60 @@
 "use client";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-type Item = { href: string; label: string };
-
-const sections: { title: string; items: Item[] }[] = [
-  {
-    title: "Guía rápida",
-    items: [
-      { href: "/wiki/instalacion", label: "Instalación (invitar)" },
-      { href: "/wiki/configuracion-inicial", label: "Configuración inicial" },
-  { href: "/comandos", label: "Lista de comandos" }
-    ]
-  },
-  {
-    title: "Módulos",
-    items: [
-      { href: "/wiki/modulos", label: "Resumen de módulos" },
-      { href: "/wiki/modulos/tickets", label: "Tickets" },
-      { href: "/wiki/modulos/moderacion", label: "Moderación" },
-      { href: "/wiki/modulos/niveles", label: "Niveles" },
-      { href: "/wiki/modulos/recordatorios-giveaways", label: "Recordatorios y sorteos" }
-    ]
-  },
-  {
-    title: "Soporte",
-    items: [
-      { href: "/wiki/preguntas-frecuentes", label: "Preguntas frecuentes" },
-      { href: "/wiki/solucion-de-problemas", label: "Solución de problemas" },
-      { href: "/wiki/privacidad-y-seguridad", label: "Privacidad y seguridad" },
-      
-    ]
-  }
-];
+import { ChevronDown } from "lucide-react";
+import { cn } from "@/utils/cn";
+import { wikiSections } from "@/lib/wiki-sections";
 
 export function WikiNav() {
   const pathname = usePathname();
+
   return (
-    <nav className="space-y-6">
-      {sections.map((sec) => (
-        <div key={sec.title}>
-          <h3 className="text-xs uppercase tracking-wider text-zinc-400">{sec.title}</h3>
-          <ul className="mt-2 space-y-1">
-            {sec.items.map((it) => {
-              const active = pathname === it.href;
-              return (
-                <li key={it.href}>
-                  <Link
-                    href={it.href as any}
-                    className={
-                      "block rounded px-2 py-1 text-sm " +
-                      (active
-                        ? "bg-white/10 text-white"
-                        : "text-zinc-300 hover:bg-white/5 hover:text-white")
-                    }
-                  >
-                    {it.label}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      ))}
-    </nav>
+    <div className="surface-card p-4">
+      <p className="mb-4 text-meta font-medium uppercase tracking-[0.2em] text-text-muted">
+        Wiki ZynxFox
+      </p>
+      <nav className="space-y-3" aria-label="Navegación de la wiki">
+        {wikiSections.map((section) => {
+          const hasActiveItem = section.items.some((item) => item.href === pathname);
+          return (
+            <details
+              key={section.title}
+              open={hasActiveItem}
+              className="group rounded-card border border-border-subtle bg-surface-elevated/60"
+            >
+              <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-3 text-sm font-medium text-text-primary marker:hidden">
+                <span>{section.title}</span>
+                <ChevronDown
+                  aria-hidden
+                  size={16}
+                  className="transition-transform duration-fast group-open:rotate-180"
+                />
+              </summary>
+              <ul className="space-y-1 px-2 pb-2">
+                {section.items.map((item) => {
+                  const active = pathname === item.href;
+                  return (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href as any}
+                        className={cn(
+                          "block rounded-lg px-3 py-2 text-sm transition-colors duration-fast",
+                          active
+                            ? "bg-brand-purple/10 text-brand-purple"
+                            : "text-text-secondary hover:bg-surface-card hover:text-text-primary"
+                        )}
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </details>
+          );
+        })}
+      </nav>
+    </div>
   );
 }
