@@ -121,6 +121,10 @@ export default async function HomePage() {
               Ver documentacion
             </Button>
           </div>
+
+          <p className="mt-5 text-sm text-text-muted">
+            Un proyecto de <span className="text-text-secondary">Eclipse Studios</span>
+          </p>
         </Reveal>
       </section>
 
