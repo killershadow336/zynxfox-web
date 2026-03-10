@@ -62,8 +62,11 @@ function formatReadingLabel(readingMinutes: number) {
 function getAuthorAvatarUrl(author: string) {
   const ownerDiscordId = process.env.NEXT_PUBLIC_OWNER_DISCORD_ID?.trim();
   const ownerDiscordUsername = process.env.NEXT_PUBLIC_OWNER_DISCORD_USERNAME?.trim();
-  const identity = ownerDiscordId || ownerDiscordUsername || author;
-  return `https://unavatar.io/discord/${encodeURIComponent(identity)}`;
+  if (ownerDiscordId || ownerDiscordUsername || author === "killershadow336") {
+    return "/api/owner-avatar";
+  }
+
+  return `https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(author)}`;
 }
 
 const blogComponents = {

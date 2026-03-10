@@ -54,11 +54,23 @@ La web intenta mostrar tu avatar de Discord usando:
 - `NEXT_PUBLIC_OWNER_DISCORD_ID`
 - o, si no existe, `NEXT_PUBLIC_OWNER_DISCORD_USERNAME`
 
+Orden actual del resolver:
+
+1. `Lanyard` por tu `Discord ID`
+2. API oficial de Discord si configuras token
+3. `unavatar`
+4. avatar fallback con iniciales
+
+Si quieres una capa extra de respaldo, tambien puedes configurar en Vercel:
+
+- `DISCORD_BOT_TOKEN`
+
 Para que se actualice cuando cambies tu foto, lo ideal es poner tu ID de Discord en:
 
 `NEXT_PUBLIC_OWNER_DISCORD_ID=tu_id`
 
-Y subir esa variable tambien a Vercel.
+Y subir esa variable tambien a Vercel.  
+Si ademas configuras `DISCORD_BOT_TOKEN`, la web intentara resolver tu avatar directamente desde la API de Discord en la ruta `/api/owner-avatar`.
 
 ## Flujo recomendado
 
