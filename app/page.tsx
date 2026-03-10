@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   ArrowRight,
   BellRing,
@@ -122,9 +123,20 @@ export default async function HomePage() {
             </Button>
           </div>
 
-          <p className="mt-5 text-sm text-text-muted">
-            Un proyecto de <span className="text-text-secondary">Eclipse Studios</span>
-          </p>
+          <div className="mt-5 flex justify-center">
+            <div className="inline-flex items-center gap-3 rounded-full border border-border-subtle bg-surface-card/70 px-3 py-2 text-sm text-text-muted backdrop-blur">
+              <Image
+                src="/eclipse-studios.png"
+                alt="Eclipse Studios"
+                width={24}
+                height={24}
+                className="h-6 w-6 rounded-full object-cover"
+              />
+              <span>
+                Un proyecto de <span className="text-text-secondary">Eclipse Studios</span>
+              </span>
+            </div>
+          </div>
         </Reveal>
       </section>
 
