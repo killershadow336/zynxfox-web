@@ -1,6 +1,6 @@
 import type React from "react";
 import { TableOfContents, type TocItem } from "@/components/ui/table-of-contents";
-import { cn } from "@/utils/cn";
+import { cn } from "@/lib/cn";
 
 type DocLayoutProps = {
   sidebar: React.ReactNode;

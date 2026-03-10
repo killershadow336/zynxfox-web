@@ -1,6 +1,6 @@
 import type React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@/utils/cn";
+import { cn } from "@/lib/cn";
 
 const calloutVariants = cva("rounded-card border px-4 py-4 text-sm leading-7", {
   variants: {

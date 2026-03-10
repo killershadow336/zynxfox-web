@@ -17,7 +17,7 @@ import { GradientText } from "@/components/ui/gradient-text";
 import { MediaSlot } from "@/components/ui/media-slot";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeader } from "@/components/ui/section-header";
-import { buildInviteUrl } from "@/utils/inviteUrl";
+import { buildInviteUrl } from "@/lib/inviteUrl";
 import { withLocale } from "@/lib/site";
 
 const supportUrl = process.env.NEXT_PUBLIC_SUPPORT_URL || "#";

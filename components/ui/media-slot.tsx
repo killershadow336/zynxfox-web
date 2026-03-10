@@ -1,6 +1,6 @@
 import { ImagePlus, PlayCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { cn } from "@/utils/cn";
+import { cn } from "@/lib/cn";
 
 type MediaSlotProps = {
   title: string;

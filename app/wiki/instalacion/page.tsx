@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Callout } from "@/components/ui/callout";
 import { CommandBadge } from "@/components/ui/command-badge";
-import { buildInviteUrl } from "@/utils/inviteUrl";
+import { buildInviteUrl } from "@/lib/inviteUrl";
 
 export default function InstalacionPage() {
   const inviteUrl = buildInviteUrl();

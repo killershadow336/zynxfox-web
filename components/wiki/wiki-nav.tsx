@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
-import { cn } from "@/utils/cn";
+import { cn } from "@/lib/cn";
 import { wikiSections } from "@/lib/wiki-sections";
 
 export function WikiNav() {

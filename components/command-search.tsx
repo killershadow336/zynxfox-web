@@ -5,7 +5,7 @@ import { useMemo, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { CommandBadge } from "@/components/ui/command-badge";
-import { cn } from "@/utils/cn";
+import { cn } from "@/lib/cn";
 
 type Cmd = { name: string; desc: string; cat: string };
 

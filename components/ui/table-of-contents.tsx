@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
-import { cn } from "@/utils/cn";
+import { cn } from "@/lib/cn";
 
 export type TocItem = {
   id: string;

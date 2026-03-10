@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { buildInviteUrl } from "@/utils/inviteUrl";
-import { cn } from "@/utils/cn";
+import { buildInviteUrl } from "@/lib/inviteUrl";
+import { cn } from "@/lib/cn";
 import { withLocale } from "@/lib/site";
 
 const navItems = [

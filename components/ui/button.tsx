@@ -3,7 +3,7 @@
 import type React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import Link from "next/link";
-import { cn } from "@/utils/cn";
+import { cn } from "@/lib/cn";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-button font-medium transition-all duration-fast ease-out-quint focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple/40 focus-visible:ring-offset-0 disabled:pointer-events-none disabled:opacity-60",
