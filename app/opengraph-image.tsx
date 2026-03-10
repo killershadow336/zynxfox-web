@@ -1,5 +1,4 @@
 import { ImageResponse } from "next/og";
-import { getSiteUrl } from "@/lib/site";
 
 export const runtime = "edge";
 export const alt = "ZynxFox";
@@ -9,11 +8,9 @@ export const size = {
 };
 export const contentType = "image/png";
 
-export default function OpenGraphImage() {
-  const siteUrl = getSiteUrl();
-  const logoUrl = new URL("/zynxfox.png", siteUrl).toString();
-  const studioUrl = new URL("/eclipse-studios.png", siteUrl).toString();
+const chips = ["Documentacion", "Soporte", "Terminos", "Privacidad"];
 
+export default function OpenGraphImage() {
   return new ImageResponse(
     (
       <div
@@ -24,7 +21,7 @@ export default function OpenGraphImage() {
           position: "relative",
           overflow: "hidden",
           background:
-            "radial-gradient(circle at 18% 22%, rgba(91,84,232,0.34), transparent 28%), radial-gradient(circle at 82% 26%, rgba(232,84,122,0.26), transparent 30%), linear-gradient(135deg, #07080D 0%, #090B16 55%, #0D1020 100%)",
+            "radial-gradient(circle at 18% 20%, rgba(91,84,232,0.28), transparent 28%), radial-gradient(circle at 84% 22%, rgba(232,84,122,0.24), transparent 30%), linear-gradient(135deg, #07080D 0%, #090B16 50%, #0D1020 100%)",
           color: "#E8EAF6",
           fontFamily: "sans-serif",
         }}
@@ -34,46 +31,20 @@ export default function OpenGraphImage() {
             position: "absolute",
             inset: 0,
             backgroundImage:
-              "linear-gradient(rgba(91,84,232,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(91,84,232,0.07) 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
-            opacity: 0.7,
+              "linear-gradient(rgba(91,84,232,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(91,84,232,0.06) 1px, transparent 1px)",
+            backgroundSize: "42px 42px",
+            opacity: 0.8,
           }}
         />
 
         <div
           style={{
-            position: "absolute",
-            right: -120,
-            top: -40,
-            width: 420,
-            height: 420,
-            borderRadius: 999,
-            background: "radial-gradient(circle, rgba(232,84,122,0.34) 0%, rgba(232,84,122,0) 70%)",
-            filter: "blur(10px)",
-          }}
-        />
-
-        <div
-          style={{
-            position: "absolute",
-            left: -80,
-            bottom: -120,
-            width: 420,
-            height: 420,
-            borderRadius: 999,
-            background: "radial-gradient(circle, rgba(91,84,232,0.34) 0%, rgba(91,84,232,0) 70%)",
-            filter: "blur(10px)",
-          }}
-        />
-
-        <div
-          style={{
+            display: "flex",
             position: "relative",
             zIndex: 1,
-            display: "flex",
             width: "100%",
             height: "100%",
-            padding: "56px 64px",
+            padding: "58px 64px",
             justifyContent: "space-between",
           }}
         >
@@ -82,36 +53,45 @@ export default function OpenGraphImage() {
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
-              width: "64%",
+              width: "67%",
             }}
           >
             <div
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: 16,
+                gap: 14,
               }}
             >
-              <img
-                src={logoUrl}
-                width="64"
-                height="64"
-                alt="ZynxFox"
-                style={{ borderRadius: 18 }}
-              />
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: 54,
+                  height: 54,
+                  borderRadius: 16,
+                  background: "linear-gradient(135deg, #5B54E8, #E8547A)",
+                  color: "#FFFFFF",
+                  fontSize: 22,
+                  fontWeight: 900,
+                }}
+              >
+                ZF
+              </div>
               <div
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  gap: 6,
+                  gap: 4,
                 }}
               >
                 <span
                   style={{
-                    fontSize: 20,
-                    color: "#7B80B0",
+                    fontSize: 18,
                     textTransform: "uppercase",
                     letterSpacing: "0.22em",
+                    color: "#8E93BE",
                   }}
                 >
                   Sitio oficial
@@ -138,13 +118,11 @@ export default function OpenGraphImage() {
               <div
                 style={{
                   display: "flex",
-                  fontSize: 78,
+                  fontSize: 82,
                   lineHeight: 0.95,
                   fontWeight: 900,
-                  maxWidth: 700,
-                  backgroundImage: "linear-gradient(135deg, #5B54E8, #E8547A)",
-                  color: "transparent",
-                  backgroundClip: "text",
+                  maxWidth: 760,
+                  color: "#FFFFFF",
                 }}
               >
                 El bot que tu servidor necesitaba.
@@ -153,13 +131,39 @@ export default function OpenGraphImage() {
               <div
                 style={{
                   display: "flex",
-                  maxWidth: 720,
+                  maxWidth: 760,
                   fontSize: 28,
                   lineHeight: 1.35,
-                  color: "#B5B9D9",
+                  color: "#B4B8D9",
                 }}
               >
                 Documentacion, soporte, updates, terminos y privacidad para comunidades de Discord.
+              </div>
+
+              <div
+                style={{
+                  display: "flex",
+                  gap: 12,
+                  flexWrap: "wrap",
+                  marginTop: 10,
+                }}
+              >
+                {chips.map((chip) => (
+                  <div
+                    key={chip}
+                    style={{
+                      display: "flex",
+                      padding: "10px 16px",
+                      borderRadius: 999,
+                      border: "1px solid rgba(255,255,255,0.12)",
+                      background: "rgba(15,17,32,0.84)",
+                      color: "#D7DBF3",
+                      fontSize: 18,
+                    }}
+                  >
+                    {chip}
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -167,17 +171,20 @@ export default function OpenGraphImage() {
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: 14,
-                fontSize: 20,
+                gap: 12,
                 color: "#8C91BB",
+                fontSize: 20,
               }}
             >
-              <img
-                src={studioUrl}
-                width="34"
-                height="34"
-                alt="Eclipse Studios"
-                style={{ borderRadius: 999 }}
+              <div
+                style={{
+                  display: "flex",
+                  width: 28,
+                  height: 28,
+                  borderRadius: 999,
+                  background: "linear-gradient(135deg, #F5D06B, #E88E2E)",
+                  boxShadow: "0 0 24px rgba(245,208,107,0.35)",
+                }}
               />
               <span>Un proyecto de Eclipse Studios</span>
             </div>
@@ -188,29 +195,27 @@ export default function OpenGraphImage() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              width: "30%",
+              width: "26%",
             }}
           >
             <div
               style={{
                 display: "flex",
-                width: 300,
-                height: 300,
-                borderRadius: 40,
+                width: 260,
+                height: 260,
+                borderRadius: 44,
                 alignItems: "center",
                 justifyContent: "center",
+                background:
+                  "linear-gradient(135deg, rgba(91,84,232,0.2), rgba(232,84,122,0.18)), rgba(15,17,32,0.92)",
                 border: "1px solid rgba(255,255,255,0.12)",
-                background: "linear-gradient(180deg, rgba(15,17,32,0.9), rgba(9,11,22,0.72))",
-                boxShadow: "0 30px 90px rgba(0,0,0,0.35)",
+                boxShadow: "0 36px 90px rgba(0,0,0,0.35)",
+                color: "#FFFFFF",
+                fontSize: 92,
+                fontWeight: 900,
               }}
             >
-              <img
-                src={logoUrl}
-                width="200"
-                height="200"
-                alt="Logo ZynxFox"
-                style={{ borderRadius: 32 }}
-              />
+              ZF
             </div>
           </div>
         </div>
