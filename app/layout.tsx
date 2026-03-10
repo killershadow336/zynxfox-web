@@ -32,10 +32,10 @@ export const metadata: Metadata = {
     locale: "es_BO",
     images: [
       {
-        url: "/zynxfox.png",
-        width: 512,
-        height: 512,
-        alt: "ZynxFox",
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "ZynxFox | Bot de Discord",
       },
     ],
   },
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    images: ["/zynxfox.png"],
+    images: ["/opengraph-image"],
   },
   icons: {
     icon: "/zynxfox.png",

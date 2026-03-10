@@ -28,7 +28,19 @@ const highlights = [
 
 export const metadata = {
   title: "Wiki",
-  description: "Centro de ayuda y documentación pública de ZynxFox.",
+  description: "Centro de ayuda, documentacion publica y guias de configuracion de ZynxFox.",
+  openGraph: {
+    title: "Wiki de ZynxFox",
+    description: "Guias publicas para instalar, configurar modulos y resolver dudas de ZynxFox.",
+    url: "/wiki",
+    images: ["/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Wiki de ZynxFox",
+    description: "Guias publicas para instalar, configurar modulos y resolver dudas de ZynxFox.",
+    images: ["/opengraph-image"],
+  },
 };
 
 export default function WikiPage() {

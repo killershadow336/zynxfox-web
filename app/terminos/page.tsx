@@ -8,6 +8,19 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: document.title,
     description: document.description,
+    openGraph: {
+      title: `${document.title} | ZynxFox`,
+      description: document.description,
+      type: "article",
+      url: "/terminos",
+      images: ["/opengraph-image"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${document.title} | ZynxFox`,
+      description: document.description,
+      images: ["/opengraph-image"],
+    },
   };
 }
 

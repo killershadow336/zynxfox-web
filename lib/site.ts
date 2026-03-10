@@ -2,9 +2,9 @@ export const defaultLocale = "es";
 export const localePrefixEnabled = false;
 
 export const siteName = "ZynxFox";
-export const siteTitle = "ZynxFox | Discord";
+export const siteTitle = "ZynxFox | Bot de Discord";
 export const siteDescription =
-  "Sitio oficial de ZynxFox con documentacion, soporte, updates y recursos publicos para tu servidor.";
+  "Sitio oficial de ZynxFox con documentacion, soporte, updates, terminos y privacidad para comunidades de Discord.";
 
 export function getSiteUrl() {
   const rawUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
