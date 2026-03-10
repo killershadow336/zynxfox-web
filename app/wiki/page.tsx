@@ -33,13 +33,13 @@ export const metadata = {
     title: "Wiki de ZynxFox",
     description: "Guias publicas para instalar, configurar modulos y resolver dudas de ZynxFox.",
     url: "/wiki",
-    images: ["/opengraph-image"],
+    images: ["/og-card.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Wiki de ZynxFox",
     description: "Guias publicas para instalar, configurar modulos y resolver dudas de ZynxFox.",
-    images: ["/opengraph-image"],
+    images: ["/og-card.png"],
   },
 };
 
