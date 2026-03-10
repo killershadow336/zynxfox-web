@@ -15,7 +15,7 @@ export function Footer() {
           />
           <div className="space-y-1">
             <p className="font-medium text-text-primary">ZynxFox</p>
-            <p>Creado por killershadow336 con amor :3</p>
+            <p>Un proyecto de Eclipse Studios, creado por killershadow336.</p>
           </div>
         </div>
 
