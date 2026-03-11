@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import foxLogo from "@/public/zynxfox.png";
 
 export const size = {
   width: 1600,
@@ -153,23 +154,18 @@ export default function TwitterImage() {
                     "radial-gradient(circle at 30% 30%, rgba(255,255,255,0.16), rgba(91,84,232,0.08) 35%, rgba(8,10,18,0.18) 100%)",
                 }}
               >
-                <div
+                <img
+                  src={foxLogo.src}
+                  alt="ZynxFox"
                   style={{
                     display: "flex",
-                    width: 132,
-                    height: 132,
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderRadius: 34,
-                    background:
-                      "linear-gradient(160deg, rgba(255,166,77,0.98), rgba(232,84,122,0.96) 52%, rgba(91,84,232,0.92))",
-                    color: "#ffffff",
-                    fontSize: 86,
-                    transform: "rotate(-10deg)",
+                    width: 156,
+                    height: 156,
+                    objectFit: "contain",
+                    filter: "drop-shadow(0 16px 30px rgba(0,0,0,0.3))",
+                    transform: "rotate(-8deg)",
                   }}
-                >
-                  🦊
-                </div>
+                />
               </div>
 
               <div

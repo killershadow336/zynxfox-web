@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import foxLogo from "@/public/zynxfox.png";
 
 export const size = {
   width: 1200,
@@ -175,23 +176,18 @@ export default function OpenGraphImage() {
                   boxShadow: "inset 0 0 80px rgba(91,84,232,0.18), 0 18px 40px rgba(0,0,0,0.28)",
                 }}
               >
-                <div
+                <img
+                  src={foxLogo.src}
+                  alt="ZynxFox"
                   style={{
                     display: "flex",
-                    width: 116,
-                    height: 116,
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderRadius: 30,
-                    background:
-                      "linear-gradient(160deg, rgba(255,166,77,0.98), rgba(232,84,122,0.96) 52%, rgba(91,84,232,0.92))",
-                    color: "#ffffff",
-                    fontSize: 74,
-                    transform: "rotate(-10deg)",
+                    width: 132,
+                    height: 132,
+                    objectFit: "contain",
+                    filter: "drop-shadow(0 14px 26px rgba(0,0,0,0.3))",
+                    transform: "rotate(-8deg)",
                   }}
-                >
-                  🦊
-                </div>
+                />
               </div>
 
               <div
