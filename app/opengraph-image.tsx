@@ -184,14 +184,13 @@ export default function OpenGraphImage() {
                     justifyContent: "center",
                     borderRadius: 30,
                     background:
-                      "linear-gradient(160deg, rgba(91,84,232,0.95), rgba(147,94,229,0.98) 48%, rgba(232,84,122,0.96))",
+                      "linear-gradient(160deg, rgba(255,166,77,0.98), rgba(232,84,122,0.96) 52%, rgba(91,84,232,0.92))",
                     color: "#ffffff",
-                    fontSize: 72,
-                    fontWeight: 900,
-                    transform: "rotate(-12deg)",
+                    fontSize: 74,
+                    transform: "rotate(-10deg)",
                   }}
                 >
-                  Z
+                  🦊
                 </div>
               </div>
 
