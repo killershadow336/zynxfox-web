@@ -9,18 +9,18 @@ const highlights = [
   {
     icon: Settings2,
     title: "Primeros pasos",
-    description: "Invitación, permisos básicos y puesta en marcha desde /config para dejar el bot útil desde el minuto uno.",
+    description: "Invitacion, permisos basicos y puesta en marcha desde /config para dejar el bot util desde el minuto uno.",
     href: "/wiki/configuracion-inicial",
   },
   {
     icon: Wrench,
-    title: "Módulos y sistemas",
-    description: "Tickets, moderación, niveles, Centro de Creadores, sorteos, TTS y otras funciones organizadas por guías.",
+    title: "Modulos y sistemas",
+    description: "Tickets, moderacion, niveles, Centro de Creadores, sorteos, TTS y otras funciones organizadas por guias.",
     href: "/wiki/modulos",
   },
   {
     icon: LifeBuoy,
-    title: "Ayuda y resolución",
+    title: "Ayuda y resolucion",
     description: "Preguntas frecuentes, errores comunes y ruta directa al soporte oficial si algo no sale como esperabas.",
     href: "/wiki/solucion-de-problemas",
   },
@@ -33,13 +33,11 @@ export const metadata = {
     title: "Wiki de ZynxFox",
     description: "Guias publicas para instalar, configurar modulos y resolver dudas de ZynxFox.",
     url: "/wiki",
-    images: ["/og-card.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Wiki de ZynxFox",
     description: "Guias publicas para instalar, configurar modulos y resolver dudas de ZynxFox.",
-    images: ["/og-card.png"],
   },
 };
 
@@ -48,8 +46,8 @@ export default function WikiPage() {
     <div className="space-y-12">
       <SectionHeader
         eyebrow="Centro de ayuda"
-        title="Documentación pública de ZynxFox"
-        subtitle="Guías reales para instalar el bot, activar módulos, configurar sistemas desde Discord y resolver problemas comunes."
+        title="Documentacion publica de ZynxFox"
+        subtitle="Guias reales para instalar el bot, activar modulos, configurar sistemas desde Discord y resolver problemas comunes."
       />
 
       <div className="grid gap-4 lg:grid-cols-3">
@@ -64,7 +62,7 @@ export default function WikiPage() {
               href={item.href as any}
               className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-brand-purple transition-colors hover:text-brand-pink"
             >
-              Abrir guía <ArrowRight aria-hidden size={14} />
+              Abrir guia <ArrowRight aria-hidden size={14} />
             </Link>
           </Card>
         ))}
@@ -77,15 +75,15 @@ export default function WikiPage() {
           </span>
           <div className="space-y-4">
             <h2 className="font-heading text-h3 font-bold text-text-primary">
-              Qué vas a encontrar aquí
+              Que vas a encontrar aqui
             </h2>
             <p className="text-body text-text-secondary">
-              La wiki está pensada para acompañar el uso real del bot, con guías claras para configurar módulos, revisar comandos y resolver dudas frecuentes.
+              La wiki esta pensada para acompanar el uso real del bot, con guias claras para configurar modulos, revisar comandos y resolver dudas frecuentes.
             </p>
             <div className="flex flex-wrap items-center gap-3 text-sm text-text-secondary">
               <span>Punto de partida:</span>
               <CommandBadge command="/config" />
-              <span>para módulos, permisos y sistemas automáticos.</span>
+              <span>para modulos, permisos y sistemas automaticos.</span>
             </div>
           </div>
         </div>
@@ -121,10 +119,10 @@ export default function WikiPage() {
           </span>
           <div className="space-y-3">
             <h2 className="font-heading text-h3 font-bold text-text-primary">
-              Más guías y recursos visuales
+              Mas guias y recursos visuales
             </h2>
             <p className="text-body text-text-secondary">
-              Esta sección seguirá sumando capturas, ejemplos y tutoriales para que usar cada módulo sea todavía más simple.
+              Esta seccion seguira sumando capturas, ejemplos y tutoriales para que usar cada modulo sea todavia mas simple.
             </p>
           </div>
         </div>

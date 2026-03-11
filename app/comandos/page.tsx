@@ -5,7 +5,7 @@ import { scanAllCommands } from "@/lib/scanCommands";
 
 export const metadata = {
   title: "Comandos",
-  description: "Catálogo público de comandos de ZynxFox.",
+  description: "Catalogo publico de comandos de ZynxFox.",
 };
 
 export default async function ComandosPage() {
@@ -19,7 +19,7 @@ export default async function ComandosPage() {
       <SectionHeader
         eyebrow="Comandos"
         title="Todo lo que puedes hacer con ZynxFox"
-        subtitle="Busca por nombre, revisa categorías y descubre qué funciones están disponibles para tu servidor."
+        subtitle="Busca por nombre, revisa categorias y descubre que funciones estan disponibles para tu servidor."
       />
 
       <div className="mt-8 grid gap-4 md:grid-cols-3">
@@ -28,7 +28,7 @@ export default async function ComandosPage() {
             Total
           </p>
           <p className="mt-3 font-heading text-h2 font-extrabold text-text-primary">{commands.length}</p>
-          <p className="mt-2 text-sm text-text-secondary">Comandos publicados en el catálogo actual.</p>
+          <p className="mt-2 text-sm text-text-secondary">Comandos publicados en el catalogo actual.</p>
         </Card>
         <Card className="p-5">
           <p className="text-meta font-medium uppercase tracking-[0.2em] text-text-secondary">
@@ -38,11 +38,11 @@ export default async function ComandosPage() {
             <span className="font-heading text-h3 font-bold">{slashCount}</span> slash y{" "}
             <span className="font-heading text-h3 font-bold">{prefixCount}</span> prefix.
           </p>
-          <p className="mt-2 text-sm text-text-secondary">Todo organizado para que encuentres rápido lo que necesitas.</p>
+          <p className="mt-2 text-sm text-text-secondary">Todo organizado para que encuentres rapido lo que necesitas.</p>
         </Card>
         <Card className="p-5">
           <p className="text-meta font-medium uppercase tracking-[0.2em] text-text-secondary">
-            Categorías
+            Categorias
           </p>
           <p className="mt-3 font-heading text-h2 font-extrabold text-text-primary">{categories.length}</p>
           <p className="mt-2 text-sm text-text-secondary">Agrupadas por utilidad y tipo de sistema.</p>
@@ -53,7 +53,7 @@ export default async function ComandosPage() {
         <CommandSearch commands={commands} />
       ) : (
         <div className="surface-card mt-8 p-5 text-text-secondary">
-          No se encontraron comandos en el catálogo actual.
+          No se encontraron comandos en el catalogo actual.
         </div>
       )}
     </div>

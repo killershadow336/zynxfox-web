@@ -8,16 +8,16 @@ const supportBlocks = [
   {
     icon: LifeBuoy,
     title: "Ayuda general",
-    description: "Dudas sobre instalación, permisos, módulos, configuración inicial y uso cotidiano del bot.",
+    description: "Dudas sobre instalacion, permisos, modulos, configuracion inicial y uso cotidiano del bot.",
   },
   {
     icon: Bug,
     title: "Errores o fallos",
-    description: "Problemas con comandos, paneles, sistemas automáticos o comportamientos inesperados que necesiten revisión.",
+    description: "Problemas con comandos, paneles, sistemas automaticos o comportamientos inesperados que necesiten revision.",
   },
   {
     icon: ShieldAlert,
-    title: "Incidencias de moderación",
+    title: "Incidencias de moderacion",
     description: "Casos ligados a permisos, antispam, antilinks, tickets, modmail o acciones sensibles dentro del servidor.",
   },
 ];
@@ -35,7 +35,7 @@ export default function SoportePage() {
       <SectionHeader
         eyebrow="Soporte oficial"
         title="Ayuda, incidencias y contacto"
-        subtitle="Si algo falla, si necesitas orientación o si un módulo no se comporta como esperabas, este es el punto de entrada oficial para resolverlo."
+        subtitle="Si algo falla, si necesitas orientacion o si un modulo no se comporta como esperabas, este es el punto de entrada oficial para resolverlo."
       />
 
       <div className="mt-8 grid gap-4 lg:grid-cols-3">
@@ -56,12 +56,12 @@ export default function SoportePage() {
             <MessageSquareMore aria-hidden size={20} />
           </div>
           <h2 className="mt-5 font-heading text-h3 font-bold text-text-primary">
-            Qué conviene revisar antes de pedir ayuda
+            Que conviene revisar antes de pedir ayuda
           </h2>
           <ul className="mt-4 space-y-3 text-body text-text-secondary">
             <li>Confirma que el bot tenga permisos en el canal o sistema donde falla.</li>
-            <li>Revisa si el módulo ya fue configurado desde <CommandBadge command="/config" />.</li>
-            <li>Comprueba si la guía correspondiente ya cubre tu caso en la wiki.</li>
+            <li>Revisa si el modulo ya fue configurado desde <CommandBadge command="/config" />.</li>
+            <li>Comprueba si la guia correspondiente ya cubre tu caso en la wiki.</li>
           </ul>
         </Card>
 
@@ -71,7 +71,7 @@ export default function SoportePage() {
               Canal oficial de soporte
             </h2>
             <p className="text-body text-text-secondary">
-              El servidor de soporte es el lugar principal para resolver incidencias, pedir orientación y seguir cambios del bot. La configuración avanzada sigue en Discord; la web acompaña y documenta ese flujo.
+              El servidor de soporte es el lugar principal para resolver incidencias, pedir orientacion y seguir cambios del bot. La configuracion avanzada sigue en Discord; la web acompana y documenta ese flujo.
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
               <Button href={supportUrl}>Entrar al soporte</Button>

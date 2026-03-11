@@ -18,14 +18,14 @@ export function ShowcaseGrid() {
         <div className="flex flex-wrap items-center gap-2">
           <Badge variant="default">Todo desde Discord</Badge>
           <Badge variant="new">Flujo guiado</Badge>
-          <Badge variant="success">Configuración rápida</Badge>
+          <Badge variant="success">Configuracion rapida</Badge>
         </div>
 
         <div className="mt-5 grid gap-4 lg:grid-cols-[220px_minmax(0,1fr)]">
           <div className="showcase-panel">
-            <p className="showcase-panel__eyebrow">Módulos</p>
+            <p className="showcase-panel__eyebrow">Modulos</p>
             <div className="mt-3 space-y-2">
-              {["Moderación", "Tickets", "Centro de Creadores", "Niveles", "Sorteos"].map(
+              {["Moderacion", "Tickets", "Centro de Creadores", "Niveles", "Sorteos"].map(
                 (item, index) => (
                   <div
                     key={item}
@@ -68,7 +68,7 @@ export function ShowcaseGrid() {
               </div>
               <div className="showcase-row">
                 <span className="showcase-row__label">Roles con acceso</span>
-                <span className="showcase-chip">@Staff · @Mod</span>
+                <span className="showcase-chip">@Staff y @Mod</span>
               </div>
               <div className="showcase-row">
                 <span className="showcase-row__label">Transcripciones</span>
@@ -123,7 +123,7 @@ export function ShowcaseGrid() {
         <Card className="showcase-shell card-lift p-5 md:p-6">
           <div className="flex items-center justify-between gap-3">
             <div>
-              <p className="showcase-panel__eyebrow">En acción</p>
+              <p className="showcase-panel__eyebrow">En accion</p>
               <h3 className="mt-1 font-heading text-h3 font-bold text-text-primary">
                 Lo esencial del servidor en el mismo bot
               </h3>
@@ -134,7 +134,7 @@ export function ShowcaseGrid() {
           <div className="mt-5 space-y-3">
             <div className="showcase-list-item">
               <Shield size={16} aria-hidden />
-              <span>Moderación automática y manual</span>
+              <span>Moderacion automatica y manual</span>
             </div>
             <div className="showcase-list-item">
               <MessagesSquare size={16} aria-hidden />

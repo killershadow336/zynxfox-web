@@ -13,13 +13,11 @@ export async function generateMetadata(): Promise<Metadata> {
       description: document.description,
       type: "article",
       url: "/terminos",
-      images: ["/og-card.png"],
     },
     twitter: {
       card: "summary_large_image",
       title: `${document.title} | ZynxFox`,
       description: document.description,
-      images: ["/og-card.png"],
     },
   };
 }

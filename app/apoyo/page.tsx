@@ -16,11 +16,11 @@ export default function ApoyoPage() {
       <SectionHeader
         eyebrow="Apoyo"
         title="Apoya a ZynxFox"
-        subtitle="Si quieres ayudar al proyecto, aquí encontrarás las opciones disponibles para hacerlo."
+        subtitle="Si quieres ayudar al proyecto, aqui encontraras las opciones disponibles para hacerlo."
       />
 
       <div className="mt-8 flex flex-wrap gap-3">
-        <Button href={donateUrl}>Donación directa</Button>
+        <Button href={donateUrl}>Donacion directa</Button>
         <Button href={patreonUrl} variant="secondary">
           Patreon
         </Button>
