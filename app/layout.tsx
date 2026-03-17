@@ -1,6 +1,7 @@
 import type React from "react";
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "@/styles/tokens.css";
 import "./globals.css";
 import { Footer } from "@/components/footer";
@@ -60,6 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <FloatingPanelSoon />
         <Footer />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

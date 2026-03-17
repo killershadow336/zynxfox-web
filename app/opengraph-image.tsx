@@ -96,19 +96,19 @@ export default function OpenGraphImage() {
                   style={{
                     display: "flex",
                     marginTop: 28,
-                    maxWidth: 620,
+                    maxWidth: 630,
                     fontSize: 28,
                     lineHeight: 1.35,
                     color: "#aeb6db",
                   }}
                 >
-                  Documentacion, soporte, updates, terminos y privacidad para comunidades de Discord.
+                  ZynxFox reúne avisos para creadores, moderación, tickets y sistemas automáticos en una sola experiencia.
                 </div>
               </div>
 
               <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
                 <div style={{ display: "flex", gap: 14 }}>
-                  {["Documentacion", "Soporte", "Terminos", "Privacidad"].map((item) => (
+                  {["Notificaciones", "Moderación", "Tickets", "Sistemas"].map((item) => (
                     <div
                       key={item}
                       style={{
@@ -148,7 +148,7 @@ export default function OpenGraphImage() {
                       boxShadow: "0 0 18px rgba(91,84,232,0.5)",
                     }}
                   />
-                  <span>Preview limpio y alineado</span>
+                  <span>Eleva el nivel de tu comunidad</span>
                 </div>
               </div>
             </div>
@@ -217,7 +217,7 @@ export default function OpenGraphImage() {
                     color: "#9fa7cb",
                   }}
                 >
-                  ZynxFox para comunidades de Discord
+                  El único bot que tu servidor necesita
                 </span>
               </div>
             </div>

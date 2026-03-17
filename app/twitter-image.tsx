@@ -106,12 +106,12 @@ export default function TwitterImage() {
                     color: "#aeb6db",
                   }}
                 >
-                  Documentacion, soporte, updates, terminos y privacidad para comunidades de Discord.
+                  ZynxFox reúne avisos para creadores, moderación, tickets y sistemas automáticos en una sola experiencia.
                 </span>
               </div>
 
               <div style={{ display: "flex", gap: 16 }}>
-                {["Documentacion", "Soporte", "Terminos", "Privacidad"].map((item) => (
+                {["Notificaciones", "Moderación", "Tickets", "Sistemas"].map((item) => (
                   <div
                     key={item}
                     style={{
@@ -195,7 +195,7 @@ export default function TwitterImage() {
                     color: "#9fa7cb",
                   }}
                 >
-                  Preview limpio y alineado para compartir
+                  El único bot que tu servidor necesita
                 </span>
               </div>
             </div>
