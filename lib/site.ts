@@ -8,7 +8,27 @@ export const siteDescription =
 
 export function getSiteUrl() {
   const rawUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-  return rawUrl && /^https?:\/\//.test(rawUrl) ? rawUrl.replace(/\/+$/, "") : "https://example.com";
+  if (rawUrl && /^https?:\/\//.test(rawUrl)) {
+    return rawUrl.replace(/\/+$/, "");
+  }
+  
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  }
+  
+  if (process.env.NEXT_PUBLIC_VERCEL_URL) {
+    return `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+  }
+  
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+
+  if (process.env.NODE_ENV === "development") {
+    return "http://localhost:3000";
+  }
+
+  return "https://zynxfox.com";
 }
 
 export function withLocale(path: string, locale = defaultLocale) {

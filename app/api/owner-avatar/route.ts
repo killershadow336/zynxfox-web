@@ -55,7 +55,7 @@ export async function GET() {
   } catch {}
 
   if (!botToken) {
-    return NextResponse.redirect(`https://unavatar.io/discord/${encodeURIComponent(ownerId)}`, 302);
+    return NextResponse.redirect(getFallbackUrl(fallbackIdentity), 302);
   }
 
   try {
@@ -69,7 +69,7 @@ export async function GET() {
     });
 
     if (!response.ok) {
-      return NextResponse.redirect(`https://unavatar.io/discord/${encodeURIComponent(ownerId)}`, 302);
+      return NextResponse.redirect(getFallbackUrl(fallbackIdentity), 302);
     }
 
     const user = (await response.json()) as {

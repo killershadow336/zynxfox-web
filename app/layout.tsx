@@ -10,7 +10,6 @@ import { fontVariables } from "@/lib/fonts";
 import { getSiteUrl, siteDescription, siteName, siteTitle } from "@/lib/site";
 
 const siteUrl = getSiteUrl();
-const socialImageVersion = "fox-logo-v2";
 
 export const metadata: Metadata = {
   title: {
@@ -31,20 +30,11 @@ export const metadata: Metadata = {
     title: siteTitle,
     description: siteDescription,
     locale: "es_BO",
-    images: [
-      {
-        url: `/opengraph-image?v=${socialImageVersion}`,
-        width: 1200,
-        height: 630,
-        alt: "ZynxFox | Bot de Discord",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    images: [`/twitter-image?v=${socialImageVersion}`],
   },
   icons: {
     icon: "/zynxfox.png",
