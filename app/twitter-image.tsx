@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import foxLogo from "@/public/zynxfox.png";
+import { getSiteUrl } from "@/lib/site";
 
 export const size = {
   width: 1600,
@@ -155,7 +155,7 @@ export default function TwitterImage() {
                 }}
               >
                 <img
-                  src={foxLogo.src}
+                  src={`${getSiteUrl()}/zynxfox.png`}
                   alt="ZynxFox"
                   style={{
                     display: "flex",
